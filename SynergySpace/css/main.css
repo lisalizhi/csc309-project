@@ -199,7 +199,7 @@ header nav .login_btn:hover{
     width: 100%;
     height: 800px;
     position: relative;
-    background: url('../img/hero.jpg') no-repeat bottom center;
+    /*background: url('../img/hero.jpg') no-repeat bottom center;*/
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -233,7 +233,43 @@ header nav .login_btn:hover{
 }
 
 
+/*  Topper Section  */
 
+.topper{
+    background: url('../img/hero.jpg') no-repeat bottom center;
+    width: 100%;
+    position: relative;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+}
+
+.topper .caption{
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    margin-top: -105px;
+}
+
+.topper .caption h2{
+    color: #fff;
+    font-family: "P22 Corinthia";
+    font-size: 100px;
+    font-weight: lighter;
+    margin: 0;
+    position: relative;
+    display: block;
+}
+
+.topper .caption h3{
+    color: #fff;
+    font-family: "lato-regular", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    margin: -15px 0 0 25px;
+    left: 1px;
+}
 
 
 
