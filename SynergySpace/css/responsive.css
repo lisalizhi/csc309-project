@@ -1,6 +1,6 @@
 /*
 
-    Template Author : pixelhint.com
+    Original Template Author : pixelhint.com
     Author Email    : contact@pixelhint.com
     Template Name   : La Casa
     
@@ -19,10 +19,6 @@
     
 
 */
-
-
-
-
 
 
 
@@ -59,13 +55,6 @@
     font-weight: normal;
     font-style: normal;
 }
-
-
-
-
-
-
-
 
 
 
@@ -107,11 +96,6 @@ h5, h6          { font-weight: bolder }
 .clearfix {  
     *zoom: 1;  
 }
-
-
-
-
-
 
 
 
@@ -196,11 +180,6 @@ header nav .login_btn:hover{
 
 
 
-
-
-
-
-
 /*  Hero Section  */
 
 .hero{
@@ -240,6 +219,7 @@ header nav .login_btn:hover{
     margin: -15px 0 0 25px;
     left: 1px;
 }
+
 
 
 /*  Topper Section  */
@@ -351,9 +331,6 @@ header nav .login_btn:hover{
 .search .advanced_search_icon.active{
     background: url('../img/advanced_search_active.png') no-repeat;
 }
-
-
-
 
 
 

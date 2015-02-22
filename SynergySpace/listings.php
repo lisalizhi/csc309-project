@@ -5,7 +5,7 @@
 	<title>SynergySpace</title>
 	<meta charset="utf-8">
 	<meta name="author" content="Leora">
-	<meta name="description" content="index page"/>
+	<meta name="description" content="Search page for space listings"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 	
 	<link rel="stylesheet" type="text/css" href="css/reset.css">

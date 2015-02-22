@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
+<!-- original template by pixelhint.com, modified substantially by the ArgoBots group -->
 <html lang="en">
 <head>
 	<title>SynergySpace</title>
 	<meta charset="utf-8">
-	<meta name="author" content="pixelhint.com">
+	<meta name="author" content="ArgoBots">
 	<meta name="description" content="index page"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 	
@@ -18,13 +19,13 @@
 	<section class="hero">
 		<header>
 			<div class="wrapper">
-				<a href="index.php"><img src="img/logo.png" class="logo" alt="" titl=""/></a>
+				<a href="index.php"><img src="img/logo2.png" class="logo" alt="" titl=""/></a>
 				<a href="#" class="hamburger"></a>
 				<nav>
 					<ul>
 						<li><a href="#">Profile</a></li>
-						<li><a href="#">Rent</a></li>
-						<li><a href="listings.php">Listings</a></li>
+						<li><a href="listings.php">Rent</a></li>
+						<li><a href="#">List a Space</a></li>
 						<li><a href="#about">About</a></li>
 					</ul>
 					<a href="#" class="login_btn">Login</a>
