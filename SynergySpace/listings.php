@@ -16,9 +16,11 @@
 </head>
 
 <body>
-
-	<?php require('header.html');?>
-
+	<section class="topper">
+		<?php require('header.html');?>
+		<?php require('search.php');?>
+	</section>
+	
 	<section class="listings">
 		<div class="wrapper">
 			<ul class="properties_list">
