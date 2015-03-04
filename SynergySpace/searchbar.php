@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 	<section class="search">
 		<div class="wrapper">
-			<form action="#" method="post">
+			<form action="listings.php" method="post">
 				<input type="text" id="search" name="search" placeholder="What city do you want to work in?"  autocomplete="off"/>
 				<input type="submit" id="submit_search" name="submit_search"/>
 			</form>
@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 		<div class="advanced_search">
 			<div class="wrapper">
 				<span class="arrow"></span>
-				<form action="#" method="post">
+				<form action="listings.php" method="post">
 					<div class="search_fields">
 						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
 

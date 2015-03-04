@@ -18,7 +18,7 @@
 <body>
 	<section class="topper">
 		<?php require('header.html');?>
-		<?php require('search.php');?>
+		<?php require('searchbar.php');?>
 	</section>
 	
 	<section class="listings">

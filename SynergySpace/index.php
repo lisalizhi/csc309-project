@@ -18,7 +18,7 @@
 
 	<section class="hero">
 		<?php require('header.html');?>
-		<?php require('search.php');?>
+		<?php require('searchbar.php');?>
 
 			<section class="caption">
 				<h2 class="caption">SynergySpace</h2>
