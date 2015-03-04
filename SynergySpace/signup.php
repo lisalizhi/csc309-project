@@ -19,7 +19,8 @@
 </head>
 <body>
 
-	<?php require('headersimple.html');?>
+	<section class="topper">
+		<?php require('header.html');?>
 
 	
 		<section class="logform">
@@ -43,7 +44,7 @@
 										
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="submit_search" class="form_button" name="submit_search"/>
+					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
 				</form>	
 		</div>
 	</section>	
