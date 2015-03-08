@@ -16,7 +16,7 @@ if ($conn->connect_error) {
 
 	<section class="search">
 		<div class="wrapper">
-			<form action="listings.php" method="post">
+			<form action="searchresults.php" method="post">
 				<input type="text" id="search" name="search" placeholder="What city do you want to work in?"  autocomplete="off"/>
 				<input type="submit" id="submit_search" name="submit_search"/>
 			</form>

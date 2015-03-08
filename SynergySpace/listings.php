@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- original template by pixelhint.com, modified substantially by the group -->
 <html lang="en">
 <head>
 	<title>SynergySpace</title>
