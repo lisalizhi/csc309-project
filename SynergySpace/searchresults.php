@@ -40,18 +40,23 @@
 					 
 				$raw_results = mysql_query("SELECT * FROM users
 						WHERE (`username`='$query') OR (`email` LIKE '%".$query."%')") or die(mysql_error());
-					 
+						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
+				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 					while($results = mysql_fetch_array($raw_results)){
-						// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
-						 echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
-						// posts results gotten from database(title and text) you can also show id ($results['id'])
-						}				 
+						echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
+						echo "<li><a href='".$results['profile']."'><img src='".$results['image']."' class='property_img'/></a>
+						<span class='price'>".$results['price']."</span>
+						<div class='property_details'>
+						<h1>
+							<a href='".$results['profile']."'>".$results[description]."</a>
+						</h1>
+					</div></li>";
+						}			 
 					}
 				else{ // if there is no matching rows do following
 					echo "No results";
-				}
-					 
+				}	
 		?>
 		</div>
 	</section>	<!--  end listing section  -->
