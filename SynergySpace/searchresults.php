@@ -28,13 +28,13 @@
 				$username = "root";
 				$password = "";
 				$dbname = "synergyspace";
-
+				//connect to database
 				mysql_connect($servername, $username, $password) or die("Error connecting to database: ".mysql_error());
 				mysql_select_db($dbname) or die(mysql_error());
 
 				$query = $_POST['search'];// gets value sent over search form
-				 
-				$query = htmlspecialchars($query);// changes characters used in html to their equivalents, for example: < to &gt;
+				
+				$query = htmlspecialchars($query);// changes characters used in html to their equivalents,ex. < to &gt;
 					 
 				$query = mysql_real_escape_string($query);// makes sure nobody uses SQL injection
 					 
@@ -42,7 +42,7 @@
 						WHERE (`username`='$query') OR (`email` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
+				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
 					while($results = mysql_fetch_array($raw_results)){
 						echo "<li><a href='".$results['profile']."'><img src='".$results['image']."' class='property_img'/></a>
 						<span class='price'>".$results['price']."</span>

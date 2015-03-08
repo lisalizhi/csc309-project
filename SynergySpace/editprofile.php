@@ -38,7 +38,7 @@
 						<hr class="form_vert"/>
 						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  autocomplete="off">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="description" placeholder="Description to be changed to a text box"  autocomplete="off">
+						<textarea name="description" rows="15" cols="45" placeholder="Description"></textarea>
 						<hr class="form_vert"/>
 						<input type="text" class="float" id="logform" name="photo" placeholder="Photo to be changed to an upload"  autocomplete="off">					
 				

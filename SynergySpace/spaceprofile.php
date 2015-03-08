@@ -19,6 +19,7 @@
 </head>
 <body>
 
+	<section class="topper">
 	<?php require('header.html');?>
 
 	
@@ -47,7 +48,7 @@
 						<hr class="form_horiz"/>
 
 						Price:<br>
-						<input type="text" class="float" id="logform" name="monaaaay"  autocomplete="off">
+						<input type="number" min="0" class="float" id="logform" name="price"  autocomplete="off">
 						<br>
 						<hr class="form_horiz"/>
 
@@ -55,7 +56,7 @@
 						<textarea name="description" rows="15" cols="45"></textarea>
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="submit_search" class="form_button" name="submit_search"/>
+					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
 				</form>	
 		</div>
 	</section>
