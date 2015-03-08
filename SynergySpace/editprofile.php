@@ -27,7 +27,7 @@
 		<div class="wrapper">
 		<h1>Edit Profile</h1>
 
-				<form action="#" method="post">
+				<form action="#" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
@@ -40,8 +40,7 @@
 						<hr class="form_horiz"/>
 						<textarea name="description" rows="15" cols="45" placeholder="Description"></textarea>
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="photo" placeholder="Photo to be changed to an upload"  autocomplete="off">					
-				
+						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 										
 					</div>
 					<hr class="form_horiz"/>					
