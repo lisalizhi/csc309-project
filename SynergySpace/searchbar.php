@@ -1,18 +1,3 @@
-<?php
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "synergyspace";
-
-// Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-//echo "Connected successfully";
-?> 
 <!-- Search bar -->
 	<section class="search">
 		<!-- Regular Search bar -->
@@ -30,13 +15,13 @@ if ($conn->connect_error) {
 				<span class="arrow"></span>
 				<form action="listings.php" method="post">
 					<div class="search_fields">
-						<input type="text" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
+						<input type="number" min="0" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
 
 						<hr class="field_sep float"/>
 
-						<input type="text" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">
+						<input type="number" min="0" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">
 					</div>
-					<input type="text" id="keywords" name="keywords" placeholder="Keywords"  autocomplete="off">
+					<input type="number" min="0" max="5" id="keywords" name="rating" placeholder="Min. Rating"  autocomplete="off">
 					<input type="submit" id="submit_search" name="submit_search"/>
 				</form>
 			</div>
