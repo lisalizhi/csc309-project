@@ -44,7 +44,6 @@
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it does the loop
 					while($results = mysql_fetch_array($raw_results)){
-						echo "<p><h3>".$results['title']."</h3>".$results['text']."</p>";
 						echo "<li><a href='".$results['profile']."'><img src='".$results['image']."' class='property_img'/></a>
 						<span class='price'>".$results['price']."</span>
 						<div class='property_details'>
