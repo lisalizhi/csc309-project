@@ -32,28 +32,26 @@
 					<div class="search_fields">
 
 						<hr class="form_horiz"/>
-						SpaceID:<br>
-						<input type="text" class="float" id="logform" name="SID"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="SID"  placeholder="SpaceID" autocomplete="off">
 						<br>
-						<hr class="form_horiz"/>
+						<hr class="form_vert"/>
 
-						Owner Name:<br>
-						<input type="text" class="float" id="logform" name="owner"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="owner"  placeholder="Owner Name" autocomplete="off">
 						<br>
 						<hr class="form_horiz"/>
 				
-						Space Location:<br>
-						<input type="text" class="float" id="logform" name="location"   autocomplete="off">
+						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off">
+						<br>
+						<hr class="form_vert"/>
+
+						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" autocomplete="off">
 						<br>
 						<hr class="form_horiz"/>
 
-						Price:<br>
-						<input type="number" min="0" class="float" id="logform" name="price"  autocomplete="off">
-						<br>
-						<hr class="form_horiz"/>
+						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description"></textarea>
+						<hr class="form_vert"/>
 
-						Space Description:<br>
-						<textarea name="description" rows="15" cols="45"></textarea>
+						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
