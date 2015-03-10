@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2015 at 05:36 AM
+-- Generation Time: Mar 10, 2015 at 05:58 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -43,13 +43,6 @@ CREATE TABLE IF NOT EXISTS `interestedin` (
   `projectName` varchar(46) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `interestedin`
---
-
-INSERT INTO `interestedin` (`pid`, `projectName`) VALUES
-(1, 'Removing the false king');
-
 -- --------------------------------------------------------
 
 --
@@ -86,13 +79,6 @@ CREATE TABLE IF NOT EXISTS `skilledin` (
   `skill` varchar(46) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `skilledin`
---
-
-INSERT INTO `skilledin` (`pid`, `skill`) VALUES
-(1, 'tactics');
-
 -- --------------------------------------------------------
 
 --
@@ -105,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `space` (
   `price` int(11) NOT NULL,
   `description` text NOT NULL,
   `ownerid` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -138,14 +124,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `location` varchar(46) DEFAULT NULL,
   `avescore` int(11) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`pid`, `username`, `password`, `first`, `last`, `age`, `occupation`, `photo`, `description`, `email`, `location`, `avescore`) VALUES
-(1, 'azorahai', 'nissanissa', 'Stannis', 'Baratheon', NULL, 'Ruler of the Seven Kingdoms', NULL, 'This space is mine by right.', 'azorahai@westeros.com', 'The Wall', NULL),
-(2, 'lordsnow', 'imissygritte', 'Jon', 'Snow', 16, 'Brother of the Night''s Watch', NULL, 'Stick em with the pointy end', 'ghostofthenorth@westeros.com', 'The Wall', NULL);
 
 --
 -- Indexes for dumped tables
@@ -207,7 +185,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `space`
 --
 ALTER TABLE `space`
-MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
