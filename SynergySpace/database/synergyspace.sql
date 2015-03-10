@@ -1,0 +1,268 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Mar 10, 2015 at 05:36 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `synergyspace`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `friendswith`
+--
+
+CREATE TABLE IF NOT EXISTS `friendswith` (
+  `pid1` int(11) NOT NULL,
+  `pid2` int(11) NOT NULL,
+  `sid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `interestedin`
+--
+
+CREATE TABLE IF NOT EXISTS `interestedin` (
+  `pid` int(11) NOT NULL,
+  `projectName` varchar(46) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `interestedin`
+--
+
+INSERT INTO `interestedin` (`pid`, `projectName`) VALUES
+(1, 'Removing the false king');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE IF NOT EXISTS `members` (
+  `pid` int(11) NOT NULL,
+  `sid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `review`
+--
+
+CREATE TABLE IF NOT EXISTS `review` (
+  `rid` int(11) NOT NULL,
+  `reviewerid` int(11) NOT NULL,
+  `ownerid` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `score` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `skilledin`
+--
+
+CREATE TABLE IF NOT EXISTS `skilledin` (
+  `pid` int(11) NOT NULL,
+  `skill` varchar(46) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `skilledin`
+--
+
+INSERT INTO `skilledin` (`pid`, `skill`) VALUES
+(1, 'tactics');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `space`
+--
+
+CREATE TABLE IF NOT EXISTS `space` (
+`sid` int(11) NOT NULL,
+  `location` varchar(46) NOT NULL,
+  `price` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `ownerid` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `spaceprojects`
+--
+
+CREATE TABLE IF NOT EXISTS `spaceprojects` (
+  `sid` int(11) NOT NULL,
+  `projectname` varchar(46) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+`pid` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
+  `password` varchar(16) NOT NULL,
+  `first` varchar(46) NOT NULL,
+  `last` varchar(46) NOT NULL,
+  `age` int(11) DEFAULT NULL,
+  `occupation` varchar(46) DEFAULT NULL,
+  `photo` int(11) DEFAULT NULL,
+  `description` text,
+  `email` varchar(46) NOT NULL,
+  `location` varchar(46) DEFAULT NULL,
+  `avescore` int(11) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`pid`, `username`, `password`, `first`, `last`, `age`, `occupation`, `photo`, `description`, `email`, `location`, `avescore`) VALUES
+(1, 'azorahai', 'nissanissa', 'Stannis', 'Baratheon', NULL, 'Ruler of the Seven Kingdoms', NULL, 'This space is mine by right.', 'azorahai@westeros.com', 'The Wall', NULL),
+(2, 'lordsnow', 'imissygritte', 'Jon', 'Snow', 16, 'Brother of the Night''s Watch', NULL, 'Stick em with the pointy end', 'ghostofthenorth@westeros.com', 'The Wall', NULL);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `friendswith`
+--
+ALTER TABLE `friendswith`
+ ADD KEY `pid1` (`pid1`,`pid2`,`sid`), ADD KEY `pid2` (`pid2`,`sid`), ADD KEY `sid` (`sid`);
+
+--
+-- Indexes for table `interestedin`
+--
+ALTER TABLE `interestedin`
+ ADD KEY `pid` (`pid`);
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+ ADD KEY `pid` (`pid`,`sid`), ADD KEY `sid` (`sid`);
+
+--
+-- Indexes for table `review`
+--
+ALTER TABLE `review`
+ ADD PRIMARY KEY (`rid`), ADD KEY `reviewerid` (`reviewerid`,`ownerid`), ADD KEY `reviewedid` (`ownerid`);
+
+--
+-- Indexes for table `skilledin`
+--
+ALTER TABLE `skilledin`
+ ADD KEY `pid` (`pid`), ADD KEY `pid_2` (`pid`);
+
+--
+-- Indexes for table `space`
+--
+ALTER TABLE `space`
+ ADD PRIMARY KEY (`sid`), ADD KEY `ownerid` (`ownerid`), ADD KEY `ownerid_2` (`ownerid`);
+
+--
+-- Indexes for table `spaceprojects`
+--
+ALTER TABLE `spaceprojects`
+ ADD KEY `sid` (`sid`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+ ADD PRIMARY KEY (`pid`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`), ADD KEY `pid` (`pid`,`username`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `space`
+--
+ALTER TABLE `space`
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `friendswith`
+--
+ALTER TABLE `friendswith`
+ADD CONSTRAINT `friendswith_ibfk_1` FOREIGN KEY (`pid1`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `friendswith_ibfk_2` FOREIGN KEY (`pid2`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `friendswith_ibfk_3` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`);
+
+--
+-- Constraints for table `interestedin`
+--
+ALTER TABLE `interestedin`
+ADD CONSTRAINT `interestedin_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `members`
+--
+ALTER TABLE `members`
+ADD CONSTRAINT `members_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `members_ibfk_2` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `review`
+--
+ALTER TABLE `review`
+ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`reviewerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ownerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `skilledin`
+--
+ALTER TABLE `skilledin`
+ADD CONSTRAINT `skilledin_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `space`
+--
+ALTER TABLE `space`
+ADD CONSTRAINT `space_ibfk_1` FOREIGN KEY (`ownerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `spaceprojects`
+--
+ALTER TABLE `spaceprojects`
+ADD CONSTRAINT `spaceprojects_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
