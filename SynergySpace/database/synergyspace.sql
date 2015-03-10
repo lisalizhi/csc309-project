@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2015 at 05:58 AM
+-- Generation Time: Mar 10, 2015 at 05:42 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -27,8 +27,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `friendswith` (
-  `pid1` int(11) NOT NULL,
-  `pid2` int(11) NOT NULL,
+  `username1` varchar(16) NOT NULL,
+  `username2` varchar(16) NOT NULL,
   `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `friendswith` (
 --
 
 CREATE TABLE IF NOT EXISTS `interestedin` (
-  `pid` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `projectName` varchar(46) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS `interestedin` (
 --
 
 CREATE TABLE IF NOT EXISTS `members` (
-  `pid` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -62,8 +62,8 @@ CREATE TABLE IF NOT EXISTS `members` (
 
 CREATE TABLE IF NOT EXISTS `review` (
   `rid` int(11) NOT NULL,
-  `reviewerid` int(11) NOT NULL,
-  `ownerid` int(11) NOT NULL,
+  `reviewerusername` varchar(16) NOT NULL,
+  `ownerusername` varchar(16) NOT NULL,
   `description` text NOT NULL,
   `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `review` (
 --
 
 CREATE TABLE IF NOT EXISTS `skilledin` (
-  `pid` int(11) NOT NULL,
+  `username` varchar(16) NOT NULL,
   `skill` varchar(46) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -90,8 +90,9 @@ CREATE TABLE IF NOT EXISTS `space` (
   `location` varchar(46) NOT NULL,
   `price` int(11) NOT NULL,
   `description` text NOT NULL,
-  `ownerid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `ownerusername` varchar(16) NOT NULL,
+  `photo` varchar(16) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -111,19 +112,18 @@ CREATE TABLE IF NOT EXISTS `spaceprojects` (
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`pid` int(11) NOT NULL,
   `username` varchar(16) NOT NULL,
   `password` varchar(16) NOT NULL,
   `first` varchar(46) NOT NULL,
   `last` varchar(46) NOT NULL,
   `age` int(11) DEFAULT NULL,
   `occupation` varchar(46) DEFAULT NULL,
-  `photo` int(11) DEFAULT NULL,
+  `photo` varchar(16) DEFAULT NULL,
   `description` text,
   `email` varchar(46) NOT NULL,
   `location` varchar(46) DEFAULT NULL,
   `avescore` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -133,37 +133,37 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Indexes for table `friendswith`
 --
 ALTER TABLE `friendswith`
- ADD KEY `pid1` (`pid1`,`pid2`,`sid`), ADD KEY `pid2` (`pid2`,`sid`), ADD KEY `sid` (`sid`);
+ ADD KEY `pid1` (`username1`,`username2`,`sid`), ADD KEY `pid2` (`username2`,`sid`), ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `interestedin`
 --
 ALTER TABLE `interestedin`
- ADD KEY `pid` (`pid`);
+ ADD KEY `pid` (`username`);
 
 --
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
- ADD KEY `pid` (`pid`,`sid`), ADD KEY `sid` (`sid`);
+ ADD KEY `pid` (`username`,`sid`), ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
- ADD PRIMARY KEY (`rid`), ADD KEY `reviewerid` (`reviewerid`,`ownerid`), ADD KEY `reviewedid` (`ownerid`);
+ ADD PRIMARY KEY (`rid`), ADD KEY `reviewerid` (`reviewerusername`,`ownerusername`), ADD KEY `reviewedid` (`ownerusername`);
 
 --
 -- Indexes for table `skilledin`
 --
 ALTER TABLE `skilledin`
- ADD KEY `pid` (`pid`), ADD KEY `pid_2` (`pid`);
+ ADD KEY `pid` (`username`), ADD KEY `pid_2` (`username`);
 
 --
 -- Indexes for table `space`
 --
 ALTER TABLE `space`
- ADD PRIMARY KEY (`sid`), ADD KEY `ownerid` (`ownerid`), ADD KEY `ownerid_2` (`ownerid`);
+ ADD PRIMARY KEY (`sid`), ADD KEY `ownerid` (`ownerusername`), ADD KEY `ownerid_2` (`ownerusername`);
 
 --
 -- Indexes for table `spaceprojects`
@@ -175,7 +175,7 @@ ALTER TABLE `spaceprojects`
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`pid`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`), ADD KEY `pid` (`pid`,`username`);
+ ADD PRIMARY KEY (`username`), ADD UNIQUE KEY `username` (`username`), ADD UNIQUE KEY `email` (`email`), ADD KEY `pid` (`username`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -185,12 +185,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `space`
 --
 ALTER TABLE `space`
-MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -199,41 +194,41 @@ MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- Constraints for table `friendswith`
 --
 ALTER TABLE `friendswith`
-ADD CONSTRAINT `friendswith_ibfk_1` FOREIGN KEY (`pid1`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `friendswith_ibfk_2` FOREIGN KEY (`pid2`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `friendswith_ibfk_3` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`);
+ADD CONSTRAINT `friendswith_ibfk_3` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`),
+ADD CONSTRAINT `friendswith_ibfk_4` FOREIGN KEY (`username1`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `friendswith_ibfk_5` FOREIGN KEY (`username2`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `interestedin`
 --
 ALTER TABLE `interestedin`
-ADD CONSTRAINT `interestedin_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `interestedin_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `members`
 --
 ALTER TABLE `members`
-ADD CONSTRAINT `members_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `members_ibfk_2` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `members_ibfk_2` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `members_ibfk_3` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `review`
 --
 ALTER TABLE `review`
-ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`reviewerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ownerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`reviewerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ownerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `skilledin`
 --
 ALTER TABLE `skilledin`
-ADD CONSTRAINT `skilledin_ibfk_1` FOREIGN KEY (`pid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `skilledin_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `space`
 --
 ALTER TABLE `space`
-ADD CONSTRAINT `space_ibfk_1` FOREIGN KEY (`ownerid`) REFERENCES `users` (`pid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `space_ibfk_1` FOREIGN KEY (`ownerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `spaceprojects`
