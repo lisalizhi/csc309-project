@@ -27,7 +27,7 @@
 		<div class="wrapper">
 		<h1>Signup</h1>
 
-				<form action="#" method="post">
+				<form action="controller/makeaccount.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="email" placeholder="Email"  autocomplete="off">
