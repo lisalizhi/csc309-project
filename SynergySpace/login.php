@@ -27,7 +27,7 @@
 		<br>
 		<h1>Login</h1>
 
-				<form action="#" method="post">
+				<form action="loginvalidate.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off">
@@ -37,7 +37,7 @@
 						<input type="password" class="float" id="logform" name="password" placeholder="Password"  autocomplete="off">
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
+					<input type="submit" id="submit_login" class="form_button" name="submit_login" value="submit"/>
 				</form>	
 		</div>
 	</section>	
