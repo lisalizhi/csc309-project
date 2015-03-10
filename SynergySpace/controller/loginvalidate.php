@@ -1,11 +1,5 @@
 <?php			
-				$servername = "localhost";
-				$serverusername = "root";
-				$serverpassword = "";
-				$dbname = "synergyspace";
-				//connect to database
-				mysql_connect($servername, $serverusername, $serverpassword) or die("Error connecting to database: ".mysql_error());
-				mysql_select_db($dbname) or die(mysql_error());
+			require('connect.php');
 				
 			if (isset($_POST['submit_login'])){  
 				$username = $_POST['username'];
@@ -22,10 +16,10 @@
 						
 				if(mysql_num_rows($raw_results) == 1){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
-					header('Location: index.php');			 
+					header('Location: ../index.php');			 
 				}
 				else{ // if there is no matching rows do following
-					header('Location: login.php');
+					header('Location: ../login.php');
 
 				}
 			}				

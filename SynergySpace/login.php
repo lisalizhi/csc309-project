@@ -27,7 +27,7 @@
 		<br>
 		<h1>Login</h1>
 
-				<form action="loginvalidate.php" method="post">
+				<form action="controller/loginvalidate.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off">
