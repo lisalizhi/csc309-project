@@ -20,6 +20,7 @@
 	<section class="topper">
 		<?php require('header.html');?>
 		<?php require('searchbar.php');?>
+		<?php session_start(); ?>
 	</section>
 	
 	<!-- Listing results from basic search -->

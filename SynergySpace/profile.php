@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="css/formpages.css">
 	<link rel="stylesheet" type="text/css" href="css/profpages.css">
 
-
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	
@@ -22,7 +21,8 @@
 
 	<section class="topper">
 		<?php require('header.html');?>
-
+		<?php session_start(); ?>
+		<?php require('/controller/connect.php');?>
 	
 		<section class="logform">
 		<div class="wrapper">
@@ -39,7 +39,22 @@
 				</div>
 			</div>
 			<div class="mainprof">
-				<h2> Stannis Baratheon </h2>
+				<h2> 
+				<?php 
+					//if user is logged in, print their username
+					if (isset($_SESSION['username'])) {
+						$username = $_SESSION['username'];
+						$username = htmlspecialchars($username);
+						$raw_results = mysql_query("SELECT first, last FROM users
+						WHERE username='".$username."'");
+						$results = mysql_fetch_array($raw_results);
+						echo "".$results['first']." ".$results['last']."";
+						
+					} 
+					else { 
+						print("Stannis Baratheon");
+					} ?> 
+				</h2>
 				<h3>Ruler of the Seven Kingdoms </h3>
 				<hr class="profbreak" />				
 				<p>This rent space is mine by right.</p>
