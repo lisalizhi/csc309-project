@@ -27,7 +27,7 @@
 		<div class="wrapper">
 		<h1>Edit Profile</h1>
 
-				<form action="controller/changeuser.php" method="post" enctype="multipart/form-data">
+				<form action="#" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
