@@ -1,3 +1,6 @@
+<?php include("controller/connect.php"); 
+session_start();?>
+
 <!DOCTYPE html>
 <!-- original template by pixelhint.com, modified substantially by the ArgoBots group -->
 <html lang="en">
@@ -26,6 +29,13 @@
 	
 		<section class="logform">
 		<div class="wrapper">
+
+<?php if(isset($_SESSION['username'])){ ?>
+			<a href='controller/logout.php'> Log Out </a>
+<?php } ?>
+
+
+
 			<div class="profiles">
 			<div class="backlinks">
 				<div class="insidelinks">
