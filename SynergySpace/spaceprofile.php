@@ -21,7 +21,7 @@
 
 	<section class="topper">
 	<?php require('header.html');?>
-
+	<?php session_start(); ?>
 	
 		<section class="logform">
 		<div class="wrapper">

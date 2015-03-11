@@ -12,7 +12,6 @@
 	<link rel="stylesheet" type="text/css" href="css/responsive.css">
 	<link rel="stylesheet" type="text/css" href="css/formpages.css">
 
-
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/main.js"></script>
 	
@@ -21,6 +20,7 @@
 
 	<section class="topper">
 		<?php require('header.html');?>
+		<?php session_start(); ?>
 		
 		<section class="logform">
 		<div class="wrapper">
