@@ -16,7 +16,8 @@
 
 <body>
 	<section class="topper">
-		<?php require('header.html');?>
+		<?php session_start(); ?>
+		<?php require('header.php');?>
 		<?php require('searchbar.php');?>
 	</section>
 	

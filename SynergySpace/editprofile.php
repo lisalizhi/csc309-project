@@ -20,21 +20,21 @@
 <body>
 
 	<section class="topper">
-		<?php require('header.html');?>
 		<?php session_start(); ?>
+		<?php require('header.php');?>
 	
 		<section class="logform">
 		<div class="wrapper">
 		<h1>Edit Profile</h1>
 
-				<form action="#" method="post" enctype="multipart/form-data">
+				<form action="controller/changeuser.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
 						<hr class="form_vert"/>
 						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off">	
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="email" placeholder="Email"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="location" placeholder="Location"  autocomplete="off">
 						<hr class="form_vert"/>
 						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  autocomplete="off">
 						<hr class="form_horiz"/>

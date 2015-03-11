@@ -7,11 +7,16 @@
 		<a href="#" class="hamburger"></a>
 		<nav>
 			<ul>
-				<li><a href="profile.php">Profile</a></li>
-				<li><a href="listings.php">Rent</a></li>
-				<li><a href="spaceprofile.php">List a Space</a></li>
-			</ul>
 			<?php
+			if (isset($_SESSION['username'])){ ?>
+				<li><a href="profile.php">Profile</a></li>
+			<?php } ?>
+				<li><a href="listings.php">Rent</a></li>
+				<li><a href="createspace.php">List a Space</a></li>
+			</ul>
+			
+			<?php
+
 			if (isset($_SESSION['username'])){ ?>
 				<a href="controller/logout.php" class="login_btn">Logout</a>
 			<?php }else{ ?>

@@ -18,9 +18,10 @@
 <body>
 	<!-- Header and search bar -->
 	<section class="topper">
-		<?php require('header.html');?>
-		<?php require('searchbar.php');?>
 		<?php session_start(); ?>
+		<?php require('header.php');?>
+		<?php require('searchbar.php');?>
+
 	</section>
 	
 	<!-- Listing results from basic search -->

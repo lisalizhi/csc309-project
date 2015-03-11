@@ -20,8 +20,9 @@
 <body>
 
 	<section class="topper">
-	<?php require('header.html');?>
 	<?php session_start(); ?>
+	<?php require('header.php');?>
+
 	
 		<section class="logform">
 		<div class="wrapper">
@@ -31,13 +32,6 @@
 				<form action="#" method="get">
 					<div class="search_fields">
 
-						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="SID"  placeholder="SpaceID" autocomplete="off">
-						<br>
-						<hr class="form_vert"/>
-
-						<input type="text" class="float" id="logform" name="owner"  placeholder="Owner Name" autocomplete="off">
-						<br>
 						<hr class="form_horiz"/>
 				
 						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off">

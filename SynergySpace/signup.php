@@ -20,7 +20,7 @@
 <body>
 
 	<section class="topper">
-		<?php require('header.html');?>
+		<?php require('header.php');?>
 
 	
 		<section class="logform">

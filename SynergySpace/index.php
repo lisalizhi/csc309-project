@@ -18,7 +18,7 @@
 
 	<section class="hero">
 		<?php session_start(); ?>	
-		<?php require('headtest.php');?>
+		<?php require('header.php');?>
 		<?php require('searchbar.php');?>
 
 

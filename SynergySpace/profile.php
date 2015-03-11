@@ -23,23 +23,18 @@
 <body>
 
 	<section class="topper">
-		<?php require('header.html');?>
+
 		<?php session_start(); ?>
 		<?php require('/controller/connect.php');?>
-	
+		<?php require('header.php');?>
+		
 		<section class="logform">
 		<div class="wrapper">
-
-<?php if(isset($_SESSION['username'])){ ?>
-			<a href='controller/logout.php'> Log Out </a>
-<?php } ?>
-
-
-
 			<div class="profiles">
 			<div class="backlinks">
 				<div class="insidelinks">
 					<img src="img/testprofile.png" width="200" alt="Thumb!" />
+					<h5> <a href="editprofile.php">Edit Profile</a></h5>
 					<h5> Age: Unknown</h5>
 					<h5> Location: The Wall </h5>
 					<h5> Score: 1000 </h5>

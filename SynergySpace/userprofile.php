@@ -19,7 +19,7 @@
 </head>
 <body>
 
-	<?php require('header.html');?>
+	<?php require('header.php');?>
 
 	
 		<section class="logform">
