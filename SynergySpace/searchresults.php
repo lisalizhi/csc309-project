@@ -16,21 +16,17 @@
 </head>
 
 <body>
+	<!-- Header and search bar -->
 	<section class="topper">
 		<?php require('header.html');?>
 		<?php require('searchbar.php');?>
 	</section>
 	
+	<!-- Listing results from basic search -->
 	<section class="listings">
 		<div class="wrapper">
 			<?php
-				$servername = "localhost";
-				$username = "root";
-				$password = "";
-				$dbname = "synergyspace";
-				//connect to database
-				mysql_connect($servername, $username, $password) or die("Error connecting to database: ".mysql_error());
-				mysql_select_db($dbname) or die(mysql_error());
+				require('/controller/connect.php');
 
 				$query = $_POST['search'];// gets value sent over search form
 				
@@ -38,20 +34,22 @@
 					 
 				$query = mysql_real_escape_string($query);// makes sure nobody uses SQL injection
 					 
-				$raw_results = mysql_query("SELECT * FROM users
-						WHERE (`username`='$query') OR (`email` LIKE '%".$query."%')") or die(mysql_error());
+				$raw_results = mysql_query("SELECT location, price, description FROM space
+						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
-					while($results = mysql_fetch_array($raw_results)){
-						echo "<li><a href='".$results['profile']."'><img src='".$results['image']."' class='property_img'/></a>
-						<span class='price'>".$results['price']."</span>
+					while($results = mysql_fetch_array($raw_results)){ 
+						//output formatted results
+						?>
+						<li><a href="<?= $results['profile']?>"><img src="<?=$results['image']?>" class="property_img"/></a>
+						<span class='price'><?=$results['price']?></span>
 						<div class='property_details'>
 						<h1>
-							<a href='".$results['profile']."'>".$results[description]."</a>
+							<a href="<?=$results['profile']?>"><?=$results['description']?>"</a>
 						</h1>
-					</div></li>";
-						}			 
+					</div></li> 
+						<?php }			 
 					}
 				else{ // if there is no matching rows do following
 					echo "No results";
