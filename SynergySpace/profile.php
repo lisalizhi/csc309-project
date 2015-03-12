@@ -42,38 +42,38 @@
 		<section class="logform">
 		<div class="wrapper">
 			<div class="profiles">
-			<div class="backlinks">
-				<div class="insidelinks">
-					<img src="img/testprofile.png" width="200" alt="Thumb!" />
-					<h5> <a href="editprofile.php">Edit Profile</a></h5>
-					<h5> Age: Unknown</h5>
-					<h5> Location: The Wall </h5>
-					<h5> Score: 1000 </h5>
-					<hr class="sidebreak" />
-					<h5> Skills: </h5>
-					<h5>War Tactics, The Power of R'hllor</h5>
+				<div class="backlinks">
+					<div class="insidelinks">
+						<img src="img/testprofile.png" width="200" alt="Thumb!" />
+						<h5> <a href="editprofile.php">Edit Profile</a></h5>
+						<h5> Age: Unknown</h5>
+						<h5> Location: The Wall </h5>
+						<h5> Score: 1000 </h5>
+						<hr class="sidebreak" />
+						<h5> Skills: </h5>
+						<h5>War Tactics, The Power of R'hllor</h5>
+					</div>
 				</div>
-			</div>
-			<div class="mainprof">
-				<h2> 
-				<?php 
-					//if user is logged in, print their username
-					if (isset($_SESSION['username'])) {
-						echo "".$results['first']." ".$results['last']."";				
-					} 
-					else { 
-						print("Stannis Baratheon");
-					} ?> 
-				</h2>
-				<h3>Ruler of the Seven Kingdoms </h3>
-				<hr class="profbreak" />				
-				<p>This rent space is mine by right.</p>
-			</div>
-			<br>
-			<div class="mainprof">
-				<h3> Spaces </h3>
-				<hr class="profbreak" />
-			</div>
+				<div class="mainprof">
+					<h2> 
+					<?php 
+						//if user is logged in, print their username
+						if (isset($_SESSION['username'])) {
+							echo "".$results['first']." ".$results['last']."";				
+						} 
+						else { 
+							print("Stannis Baratheon");
+						} ?> 
+					</h2>
+					<h3>Ruler of the Seven Kingdoms </h3>
+					<hr class="profbreak" />				
+					<p>This rent space is mine by right.</p>
+				</div>
+				<br>
+				<div class="mainprof">
+					<h3> Spaces </h3>
+					<hr class="profbreak" />
+				</div>
 			</div>
 		</div>
 	</section>	

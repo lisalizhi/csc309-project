@@ -24,8 +24,8 @@
 		<?php require('header.php');?>
 	
 		<section class="logform">
-		<div class="wrapper">
-		<h1>Edit Profile</h1>
+			<div class="wrapper">
+				<h1>Edit Profile</h1>
 
 				<form action="#" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
@@ -47,11 +47,11 @@
 					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
 					<input type="submit" id="submit_search" class="form_button" name="cancel_search" value="cancel"/>
 				</form>	
-		</div>
-	</section>	
+			</div>
+		</section>	
 
 
-<?php require('footer.html');?>
+	<?php require('footer.html');?>
 </body>	
 
 </html>

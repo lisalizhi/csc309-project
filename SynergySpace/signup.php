@@ -24,9 +24,8 @@
 
 	
 		<section class="logform">
-		<div class="wrapper">
-		<h1>Signup</h1>
-
+			<div class="wrapper">
+				<h1>Signup</h1>
 				<form action="controller/makeaccount.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
@@ -40,14 +39,13 @@
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off">					
-										
+						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off">									
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
 				</form>	
-		</div>
-	</section>	
+			</div>
+		</section>	
 
 
 <?php require('footer.html');?>

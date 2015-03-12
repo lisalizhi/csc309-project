@@ -23,12 +23,13 @@
 			$fname = mysql_real_escape_string($fname);
 			$lname = mysql_real_escape_string($lname);
 			
+			//checks if all fields have been filled in
 			if($username and $password and $repassword and $email and $fname and $lname){
-				if ($password == $repassword){	
+				if ($password == $repassword){	//password verification 
 					$raw_results = mysql_query("SELECT username, email FROM users
 							WHERE username='".$username."' OR email='".$email."'");
 							
-					if(mysql_num_rows($raw_results) == 0){ 
+					if(mysql_num_rows($raw_results) == 0){//checks if account already exists 
 						
 						$sql = "INSERT INTO users (username, password, first, last, age, occupation, 
 						photo, description, email, location, avescore) VALUES ('$username', '$password', 
@@ -40,7 +41,7 @@
 							header('Location: ../login.php');
 						}
 					}
-					else{ // if there is no matching rows do following
+					else{
 						echo "Username or email already exist";
 					}
 				}else{
@@ -51,4 +52,4 @@
 			}
 			
 		}			
-		?>
+?>

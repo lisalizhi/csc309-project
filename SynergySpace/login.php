@@ -25,9 +25,8 @@
 		
 		<section class="logform">
 		<div class="wrapper">
-		<br>
-		<h1>Login</h1>
-
+			<br>
+			<h1>Login</h1>
 				<form action="controller/loginvalidate.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
@@ -43,8 +42,7 @@
 		</div>
 	</section>	
 
-
-<?php require('footer.html');?>
+	<?php require('footer.html');?>
 </body>	
 
 </html>
