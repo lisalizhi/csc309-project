@@ -44,7 +44,7 @@
 				<div class="insidelinks">
 					<img src="img/testprofile.png" width="200" alt="Thumb!" />
 					<h5> Location:<?php 
-						//gets the sid of the appropriate listing
+						//gets the location of the appropriate listing
 						if (isset($_POST['sid'])) {
 							echo "".$results['location']."";
 						} 
@@ -54,7 +54,7 @@
 					?> 
 					</h5>
 					<h5> Price:<?php 
-						//gets the sid of the appropriate listing
+						//gets the price of the appropriate listing
 						if (isset($_POST['sid'])) {
 							echo "".$results['price']."";
 						} 
@@ -64,7 +64,7 @@
 					?> 
 					</h5>
 					<h5> Owner:<?php 
-						//gets the sid of the appropriate listing
+						//gets the username of the owner of the appropriate listing
 						if (isset($_POST['sid'])) {
 							echo "".$results['ownerusername']."";
 						} 
@@ -78,7 +78,7 @@
 			<div class="mainprof">
 				<h3> 
 				<?php 
-					//gets the sid of the appropriate listing
+					//gets the description of the appropriate listing
 					if (isset($_POST['sid'])) {
 						echo "".$results['description']."";
 					} 

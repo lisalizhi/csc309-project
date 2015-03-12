@@ -27,6 +27,17 @@
 		<?php session_start(); ?>
 		<?php require('/controller/connect.php');?>
 		<?php require('header.php');?>
+		<?php 
+			//if user is logged in, print their username
+			if (isset($_SESSION['username'])) {
+				$username = $_SESSION['username'];
+				$username = htmlspecialchars($username);
+				$raw_results = mysql_query("SELECT * FROM users
+						WHERE username='".$username."'");
+				$results = mysql_fetch_array($raw_results);
+			}
+		?> 
+		
 		
 		<section class="logform">
 		<div class="wrapper">
@@ -48,13 +59,7 @@
 				<?php 
 					//if user is logged in, print their username
 					if (isset($_SESSION['username'])) {
-						$username = $_SESSION['username'];
-						$username = htmlspecialchars($username);
-						$raw_results = mysql_query("SELECT first, last FROM users
-						WHERE username='".$username."'");
-						$results = mysql_fetch_array($raw_results);
-						echo "".$results['first']." ".$results['last']."";
-						
+						echo "".$results['first']." ".$results['last']."";				
 					} 
 					else { 
 						print("Stannis Baratheon");
