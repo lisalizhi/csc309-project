@@ -18,7 +18,7 @@
 							
 				if(mysql_num_rows($raw_results) == 0){ 
 					//insert information into the space table 
-					$sql = "INSERT INTO spaces (location, price, description, photo) VALUES ('$location', '$price', '$description', NULL)";	
+					$sql = "INSERT INTO spaces (location, price, description, photo) VALUES ('$location', '$price', '$description', ' ')";	
 					$retval = mysql_query($sql);
 					if(!$retval ){//error handling
 						die('Could not enter data: ' . mysql_error());
