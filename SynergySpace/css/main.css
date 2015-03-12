@@ -287,7 +287,7 @@ header nav .login_btn:hover{
 }
 
 .search #search{
-    display: block;
+    display: inline;
     width: 1000px;
     height: 100px;
     float: left;
@@ -321,7 +321,19 @@ header nav .login_btn:hover{
 } 
 
 .search #submit_search{
-    display: none;
+    display: inline;
+	}
+	
+.search .submit{
+	border: solid 0px;
+	border-radius: 3px;
+	moz-border-radius: 3px;
+	font-size : 20px;
+	font-family: "lato-bold", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+	padding : 10px 40px;
+	background-color: #666464;
+	float: right;
 }
 
 .search .advanced_search_icon{

@@ -4,9 +4,10 @@
 		<div class="wrapper">
 			<form action="searchresults.php" method="post">
 				<input type="text" id="search" name="search" placeholder="What city do you want to work in?"  autocomplete="off"/>
-				<input type="submit" id="submit_search" name="submit_search"/>
+				<input type="submit" id="submit_search" name="submit_search" class="submit_" value="go"/>
 			</form>
 			<a href="#" class="advanced_search_icon" id="advanced_search_btn"></a>
+			
 		</div>
 
 		<!-- Advanced Search bar -->

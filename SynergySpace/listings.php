@@ -25,16 +25,18 @@
 		<div class="wrapper">
 			<ul class="properties_list">
 				<li>
-					<a href="#">
+					<form action="spaceprofile.php" method="post">
+					<button type="submit" value="">
 						<img src="img/property_1.jpg" alt="" title="" class="property_img"/>
-					</a>
 					<span class="price">$2500</span>
 					<div class="property_details">
 						<h1>
-							<a href="#">Fuisque dictum tortor at purus libero</a>
+							Fuisque dictum tortor at purus libero
 						</h1>
 						<h2>2 kitchens, 2 bed, 2 bath... <span class="property_size">(288ftsq)</span></h2>
 					</div>
+					</button>
+					</form>
 				</li>
 				<li>
 					<a href="#">

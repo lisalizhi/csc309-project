@@ -36,7 +36,7 @@
 					 
 				$query = mysql_real_escape_string($query);// makes sure nobody uses SQL injection
 					 
-				$raw_results = mysql_query("SELECT location, price, description FROM space
+				$raw_results = mysql_query("SELECT sid, location, price, description FROM space
 						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
@@ -44,13 +44,19 @@
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results
 						?>
-						<li><a href="<?= $results['profile']?>"><img src="<?=$results['image']?>" class="property_img"/></a>
-						<span class='price'><?=$results['price']?></span>
-						<div class='property_details'>
-						<h1>
-							<a href="<?=$results['profile']?>"><?=$results['description']?>"</a>
-						</h1>
-					</div></li> 
+						<form action="spaceprofile.php" method="post">
+						<li>
+						<button type="submit" value="<?=$results['sid']?>">
+							<img src="<?=$results['image']?>" class="property_img"/>
+							<span class='price'><?=$results['price']?></span>
+							<div class='property_details'>
+								<h1>
+									<?=$results['description']?>
+								</h1>
+							</div>
+						</button>
+						</li> 
+						</form>
 						<?php }			 
 					}
 				else{ // if there is no matching rows do following
