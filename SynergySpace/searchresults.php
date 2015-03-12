@@ -45,8 +45,8 @@
 						//output formatted results
 						?>
 						<form action="spaceprofile.php" method="post">
+						<button type="submit" name="sid" value="<?=$results['sid']?>">
 						<li>
-						<button type="submit" value="<?=$results['sid']?>">
 							<img src="<?=$results['image']?>" class="property_img"/>
 							<span class='price'><?=$results['price']?></span>
 							<div class='property_details'>
@@ -54,8 +54,8 @@
 									<?=$results['description']?>
 								</h1>
 							</div>
-						</button>
 						</li> 
+						</button>
 						</form>
 						<?php }			 
 					}
