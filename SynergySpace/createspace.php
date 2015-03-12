@@ -29,7 +29,7 @@
 		<br>
 		<h1>Create a Space Listing</h1>
 				<!-- below are is the information a user can fill out when they want to list a space -->
-				<form action="controller/makespace.php" method="get">
+				<form action="controller/makespace.php" method="post">
 					<div class="search_fields">
 
 						<hr class="form_horiz"/>
@@ -48,7 +48,7 @@
 						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
+					<input type="submit" id="spacecreate" class="form_button" name="spacecreate" value="submit"/>
 				</form>	
 		</div>
 	</section>
