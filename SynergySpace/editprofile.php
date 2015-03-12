@@ -26,7 +26,7 @@
 		<section class="logform">
 			<div class="wrapper">
 				<h1>Edit Profile</h1>
-
+				<!-- below are the areas a user can edit for their profile -->
 				<form action="#" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>

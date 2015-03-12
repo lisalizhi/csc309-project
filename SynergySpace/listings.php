@@ -20,8 +20,8 @@
 		<?php require('header.php');?>
 		<?php require('searchbar.php');?>
 	</section>
-	
-	<section class="listings">
+	<!--example listings of places when you search for spaces --> 
+	<section class="listings"> 
 		<div class="wrapper">
 			<ul class="properties_list">
 				<li>

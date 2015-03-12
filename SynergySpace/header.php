@@ -21,9 +21,9 @@
 				
 				<?php
 
-				if (isset($_SESSION['username'])){ ?>
+				if (isset($_SESSION['username'])){ ?> <!-- if the user is logged in 'Logout' appear in the header-->
 					<a href="controller/logout.php" class="login_btn">Logout</a>
-				<?php }else{ ?>
+				<?php }else{ ?> <!-- if the user is logged out or doesn't have an account 'Login' and 'Register' appear in the header -->
 					<a href="login.php" class="login_btn">Login</a>
 					<a href ="signup.php" class = "login_btn"> Register </a>
 				<?php } ?>

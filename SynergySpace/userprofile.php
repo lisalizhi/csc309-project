@@ -26,7 +26,7 @@
 		<div class="wrapper">
 		<br>
 		<h1>Create Profile</h1>
-
+				<!-- below is the information a user must fill out when creating a profile -->
 				<form action="#" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>

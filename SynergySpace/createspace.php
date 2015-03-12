@@ -28,8 +28,8 @@
 		<div class="wrapper">
 		<br>
 		<h1>Create a Space Listing</h1>
-
-				<form action="#" method="get">
+				<!-- below are is the information a user can fill out when they want to list a space -->
+				<form action="makespace.php" method="get">
 					<div class="search_fields">
 
 						<hr class="form_horiz"/>
