@@ -11,8 +11,11 @@
 			if (isset($_SESSION['username'])){ ?>
 				<li><a href="profile.php">Profile</a></li>
 			<?php } ?>
-				<li><a href="listings.php">Rent</a></li>
+				<li><a href="listings.php">Search Spaces</a></li>
+			<?php
+			if (isset($_SESSION['username'])){ ?>
 				<li><a href="createspace.php">List a Space</a></li>
+			<?php } ?>
 			</ul>
 			
 			<?php
