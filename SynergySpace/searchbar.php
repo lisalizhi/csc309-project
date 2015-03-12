@@ -14,7 +14,7 @@
 		<div class="advanced_search">
 			<div class="wrapper">
 				<span class="arrow"></span>
-				<form action="listings.php" method="post">
+				<form action="advancedsearchresults.php" method="post">
 					<div class="search_fields">
 						<input type="number" min="0" class="float" id="min_price" name="min_price" placeholder="Min. Price"  autocomplete="off">
 
