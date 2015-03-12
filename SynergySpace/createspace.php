@@ -29,7 +29,7 @@
 		<br>
 		<h1>Create a Space Listing</h1>
 				<!-- below are is the information a user can fill out when they want to list a space -->
-				<form action="makespace.php" method="get">
+				<form action="controller/makespace.php" method="get">
 					<div class="search_fields">
 
 						<hr class="form_horiz"/>
