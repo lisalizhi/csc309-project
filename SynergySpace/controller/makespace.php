@@ -23,7 +23,7 @@
 					if(!$retval ){//error handling
 						die('Could not enter data: ' . mysql_error());
 					}else{
-						header('Location: ../index.php');//redirects user to the indicated page when when teh info is successfully added to database
+						header('Location: ../index.php');//redirects user to the indicated page when the info is successfully added to database
 					}
 				}
 				else{ // if there is no matching rows do following

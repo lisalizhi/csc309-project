@@ -30,7 +30,7 @@
 			<?php
 				require('/controller/connect.php');
 
-				$location = $_POST['search'];// gets value sent over search form	
+				$location = $_POST['city'];// gets value sent over search form	
 				$location = htmlspecialchars($location);// changes characters used in html to their equivalents,ex. < to &gt;				 
 				$location = mysql_real_escape_string($location);// makes sure nobody uses SQL injection
 				
@@ -47,7 +47,7 @@
 				$rating = mysql_real_escape_string($rating);
 					 
 				$raw_results = mysql_query("SELECT sid, location, price, description FROM space
-						WHERE (`location`='$location') AND (`price`>'$minprice')) AND (`price`<'$maxprice') AND (`rating`=>'$rating') ") or die(mysql_error());
+						WHERE (`location`='$location') AND (`price`>'$minprice') AND (`price`<'$maxprice')") or die(mysql_error());// AND (`rating`>='$rating') ") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
