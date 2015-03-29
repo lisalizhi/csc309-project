@@ -44,7 +44,7 @@
 			<div class="profiles">
 				<div class="backlinks">
 					<div class="insidelinks">
-						<img src="img/testprofile.png" width="200" alt="Thumb!" />
+						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 						<h5> Age: <?php echo "".$results['age']."";?></h5>
 						<h5> Location: <?php echo "".$results['location']."";?></h5>
 						<h5> Score: 1000 </h5>
