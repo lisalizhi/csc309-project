@@ -39,7 +39,7 @@
 			<div class="wrapper">
 				<h1>Edit Profile</h1>
 				<!-- below are the areas a user can edit for their profile -->
-				<form action="#" method="post" enctype="multipart/form-data">
+				<form action="controller/updateprofile.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="fname" placeholder="First Name" value="<?=$results['first']?>"  autocomplete="off">
@@ -59,7 +59,7 @@
 										
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>
+					<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="submit"/>
 					<input type="submit" id="submit_search" class="form_button" name="cancel_search" value="cancel"/>
 				</form>	
 			</div>
