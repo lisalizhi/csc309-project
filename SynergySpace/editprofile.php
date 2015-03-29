@@ -21,7 +21,19 @@
 
 	<section class="topper">
 		<?php session_start(); ?>
+		<?php require('/controller/connect.php');?>
 		<?php require('header.php');?>
+		
+		<?php 
+			//get the old user info
+			
+			$username = $_SESSION['username'];
+			$username = htmlspecialchars($username);
+			$raw_results = mysql_query("SELECT * FROM users
+						WHERE username='".$username."'");
+			$results = mysql_fetch_array($raw_results);
+			
+		?> 
 	
 		<section class="logform">
 			<div class="wrapper">
@@ -30,15 +42,18 @@
 				<form action="#" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="fname" placeholder="First Name" value="<?=$results['first']?>"  autocomplete="off">
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off">	
+						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name" value="<?=$results['last']?>"  autocomplete="off">	
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="location" placeholder="Location"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="location" placeholder="Location"  value="<?=$results['location']?>" autocomplete="off">
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  value="<?=$results['occupation']?>" autocomplete="off">
+						<input type="number" class="float" id="logform" name="age" placeholder="Age"  value="<?=$results['age']?>" autocomplete="off">
+						<hr class="form_vert"/>
+						<input type="email" class="float" id="logform" name="email" placeholder="Email"  value="<?=$results['email']?>" autocomplete="off">	
 						<hr class="form_horiz"/>
-						<textarea name="description" rows="15" cols="45" placeholder="Description"></textarea>
+						<textarea name="description" rows="15" cols="45" placeholder="Description"><?=$results['description']?></textarea>
 						<hr class="form_vert"/>
 						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 										

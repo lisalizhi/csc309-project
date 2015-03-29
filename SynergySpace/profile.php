@@ -28,7 +28,7 @@
 		<?php require('/controller/connect.php');?>
 		<?php require('header.php');?>
 		<?php 
-			//if user is logged in, print their username
+			//if user is logged in, get their user info
 			if (isset($_SESSION['username'])) {
 				$username = $_SESSION['username'];
 				$username = htmlspecialchars($username);
@@ -45,30 +45,31 @@
 				<div class="backlinks">
 					<div class="insidelinks">
 						<img src="img/testprofile.png" width="200" alt="Thumb!" />
-						<h5> <a href="editprofile.php">Edit Profile</a></h5>
-						<h5> Age: Unknown</h5>
-						<h5> Location: The Wall </h5>
+						<h5> Age: <?php echo "".$results['age']."";?></h5>
+						<h5> Location: <?php echo "".$results['location']."";?></h5>
 						<h5> Score: 1000 </h5>
 						<hr class="sidebreak" />
 						<h5> Skills: </h5>
 						<h5>War Tactics, The Power of R'hllor</h5>
+						<form action="editprofile.php" method="post">				
+							<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="Edit"/>
+						</form>
+						<br><br>
 					</div>
 				</div>
 				<div class="mainprof">
 					<h2> 
 					<?php 
 						//if user is logged in, print their username
-						if (isset($_SESSION['username'])) {
-							echo "".$results['first']." ".$results['last']."";				
-						} 
-						else { 
-							print("Stannis Baratheon");
-						} ?> 
+						echo "".$results['first']." ".$results['last']."";				
+					?> 
 					</h2>
-					<h3>Ruler of the Seven Kingdoms </h3>
+					<h3>Occupation: <?php echo "".$results['occupation']."";?></h3>
+					<p>Email: <?php echo "".$results['email']."";?></p>
 					<hr class="profbreak" />				
-					<p>This rent space is mine by right.</p>
+					<p><?php echo "".$results['description']."";?></p>
 				</div>
+			
 				<br>
 				<div class="mainprof">
 					<h3> Spaces </h3>
