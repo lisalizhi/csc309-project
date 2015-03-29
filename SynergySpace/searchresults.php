@@ -27,6 +27,7 @@
 	<!-- Listing results from basic search -->
 	<section class="listings">
 		<div class="wrapper">
+			<ul class="properties_list">
 			<?php
 				require('/controller/connect.php');
 
@@ -44,25 +45,26 @@
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results
 						?>
+						<li>
 						<form action="spaceprofile.php" method="post">
 						<button type="submit" name="sid" value="<?=$results['sid']?>">
-						<li>
 							<img src="<?=$results['image']?>" class="property_img"/>
 							<span class='price'><?=$results['price']?></span>
 							<div class='property_details'>
 								<h1>
 									<?=$results['description']?>
 								</h1>
-							</div>
-						</li> 
+							</div> 
 						</button>
 						</form>
+						</li>
 						<?php }			 
 					}
 				else{ // if there is no matching rows do following
 					echo "No results";
 				}	
-		?>
+			?>
+			</ul>
 		</div>
 	</section>	<!--  end listing section  -->
 

@@ -47,10 +47,8 @@
 						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 						<h5> Age: <?php echo "".$results['age']."";?></h5>
 						<h5> Location: <?php echo "".$results['location']."";?></h5>
-						<h5> Score: 1000 </h5>
+						<h5> Score: <?php echo "".$results['avescore']."";?> </h5>
 						<hr class="sidebreak" />
-						<h5> Skills: </h5>
-						<h5>War Tactics, The Power of R'hllor</h5>
 						<form action="editprofile.php" method="post">				
 							<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="Edit"/>
 						</form>
@@ -73,6 +71,12 @@
 				<br>
 				<div class="mainprof">
 					<h3> Spaces </h3>
+					<hr class="profbreak" />
+				</div>
+				
+				<br>
+				<div class="mainprof">
+					<h3> Friends </h3>
 					<hr class="profbreak" />
 				</div>
 			</div>
