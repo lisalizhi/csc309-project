@@ -28,8 +28,8 @@
 		
 		<?php 
 			//gets the sid of the appropriate listing and queries for its info
-			if (isset($_POST['sid'])) {
-				$sid = $_POST['sid'];
+			if (isset($_GET['sid'])) {
+				$sid = $_GET['sid'];
 				$sid = htmlspecialchars($sid);
 				$raw_results = mysql_query("SELECT * FROM space
 						WHERE sid='".$sid."'");
@@ -43,35 +43,20 @@
 			<div class="backlinks">
 				<div class="insidelinks">
 					<img src="img/property_1.jpg" width="200" alt="Thumb!" />
-					<h5> Location:<?php 
+					<h5> Location: <?php 
 						//gets the location of the appropriate listing
-						if (isset($_POST['sid'])) {
-							echo "".$results['location']."";
-						} 
-						else { 
-							print("Unknown");
-						} 
+						echo "".$results['location'].""; 
 					?> 
 					</h5>
-					<h5> Price:<?php 
+					<h5> Price: <?php 
 						//gets the price of the appropriate listing
-						if (isset($_POST['sid'])) {
-							echo "".$results['price']."";
-						} 
-						else { 
-							print("Unknown");
-						} 
+						echo "".$results['price']."";
 					?> 
 					</h5>
-					<h5> Owner:<?php 
+					<h5> Owner: <?php 
 						//gets the username of the owner of the appropriate listing
-						if (isset($_POST['sid'])) {
-							echo "".$results['ownerusername']."";
-						} 
-						else { 
-							print("Stannis Baratheon");
-						} 
-					?> 
+						echo "".$results['ownerusername']."";
+						?> 
 					</h5>
 				</div>
 			</div>
@@ -79,12 +64,7 @@
 				<h3> 
 				<?php 
 					//gets the description of the appropriate listing
-					if (isset($_POST['sid'])) {
-						echo "".$results['description']."";
-					} 
-					else { 
-						print("Somewhere out there");
-					} 
+					echo "".$results['description']."";
 				?> 
 				</h3>
 				<hr class="profbreak" />				
