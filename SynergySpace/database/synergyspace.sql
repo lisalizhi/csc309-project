@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 10, 2015 at 05:42 PM
+-- Generation Time: Mar 31, 2015 at 05:46 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -61,12 +61,13 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 CREATE TABLE IF NOT EXISTS `review` (
-  `rid` int(11) NOT NULL,
+`rid` int(11) NOT NULL,
   `reviewerusername` varchar(16) NOT NULL,
   `ownerusername` varchar(16) NOT NULL,
   `description` text NOT NULL,
-  `score` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `score` int(11) NOT NULL,
+  `sid` int(11) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -92,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `space` (
   `description` text NOT NULL,
   `ownerusername` varchar(16) NOT NULL,
   `photo` varchar(16) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -151,7 +152,7 @@ ALTER TABLE `members`
 -- Indexes for table `review`
 --
 ALTER TABLE `review`
- ADD PRIMARY KEY (`rid`), ADD KEY `reviewerid` (`reviewerusername`,`ownerusername`), ADD KEY `reviewedid` (`ownerusername`);
+ ADD PRIMARY KEY (`rid`), ADD KEY `reviewerid` (`reviewerusername`,`ownerusername`), ADD KEY `reviewedid` (`ownerusername`), ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `skilledin`
@@ -182,10 +183,15 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `review`
+--
+ALTER TABLE `review`
+MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `space`
 --
 ALTER TABLE `space`
-MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 --
 -- Constraints for dumped tables
 --
@@ -216,7 +222,8 @@ ADD CONSTRAINT `members_ibfk_3` FOREIGN KEY (`username`) REFERENCES `users` (`us
 --
 ALTER TABLE `review`
 ADD CONSTRAINT `review_ibfk_1` FOREIGN KEY (`reviewerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ownerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `review_ibfk_2` FOREIGN KEY (`ownerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `review_ibfk_3` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `skilledin`
