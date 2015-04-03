@@ -42,7 +42,7 @@
 			<div class="profiles">
 			<div class="backlinks">
 				<div class="insidelinks">
-					<img src="img/property_1.jpg" width="200" alt="Thumb!" />
+					<img src="uploads/<?=$results['photo']?>" width="200" alt="Thumb!" />
 					<h5> Location: <?php 
 						//gets the location of the appropriate listing
 						echo "".$results['location'].""; 

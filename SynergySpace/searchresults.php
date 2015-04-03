@@ -48,7 +48,7 @@
 						<li>
 						<form action="spaceprofile.php" method="get">
 						<button type="submit" name="sid" value="<?=$results['sid']?>">
-							<img src="uploads/catt.jpg" class="property_img"/>
+							<img src="uploads/<?=$results['photo']?>" class="property_img"/>
 							<span class='price'><?=$results['price']?></span>
 							<div class='property_details'>
 								<h1>

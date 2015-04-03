@@ -29,22 +29,18 @@
 		<br>
 		<h1>Create a Space Listing</h1>
 				<!-- below are is the information a user can fill out when they want to list a space -->
-				<form action="controller/makespace.php" method="post">
+				<form action="controller/makespace.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 
 						<hr class="form_horiz"/>
-				
 						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off">
 						<br>
 						<hr class="form_vert"/>
-
 						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" autocomplete="off">
 						<br>
 						<hr class="form_horiz"/>
-
 						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description"></textarea>
 						<hr class="form_vert"/>
-
 						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 					</div>
 					<hr class="form_horiz"/>					
