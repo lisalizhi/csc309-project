@@ -38,9 +38,9 @@
 						<br>
 					</div>
 					<hr class="form_horiz"/>					
-					<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="submit"/>
-					<input type="submit" id="submit_search" class="form_button" name="cancel_search" value="cancel"/>
+					<input type="submit" id="add_review" class="form_button" name="add_review" value="submit"/>
 				</form>	
+				<a class="form_button" href="reviews.php?sid=<?=$sid?>">cancel</a>
 			</div>
 		</section>	
 

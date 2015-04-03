@@ -21,8 +21,6 @@
 			while($results = mysql_fetch_array($raw_results)){
 				if ($results['username'] != $user){
 					$friend = $results['username'];
-					//$check_friend = mysql_query("SELECT * FROM friendswith WHERE NOT EXISTS(SELECT * FROM friendswith WHERE username1 = '$user' AND username2 = '$friend')
-					//AND NOT EXISTS(SELECT * FROM friendswith WHERE username1 = '$friend' AND username2 = '$user')");
 					$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$friend')
 					OR (username1 = '$friend' AND username2 = '$user')");
 					if(mysql_num_rows($check_friend) == 0){//No results means they're already friends

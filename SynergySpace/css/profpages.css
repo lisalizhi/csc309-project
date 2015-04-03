@@ -54,6 +54,11 @@ word-wrap: break-word;
     font-weight: normal;
 }
 
+.mainprof a{
+    color: #9d9d9d;
+	text-decoration: none;
+}
+
 .backlinks{
 
 width: 250px;
