@@ -58,10 +58,16 @@
 						echo "".$results['ownerusername']."";
 						?> 
 					</h5>
+					<hr class="sidebreak" />
+						<form action="#" method="post">				
+							<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
+						</form>
+					<br><br>
 				</div>
 			</div>
 			<div class="mainprof">
 				<h3> 
+				<h3> Information: </h3>
 				<?php 
 					//gets the description of the appropriate listing
 					echo "".$results['description']."";
@@ -71,7 +77,7 @@
 			</div>
 			<br>
 			<div class="mainprof">
-				<h3> Something goes here </h3>
+				<h3> Reviews: </h3>
 				<hr class="profbreak" />
 			</div>
 			</div>

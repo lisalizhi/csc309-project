@@ -37,7 +37,7 @@
 					 
 				$query = mysql_real_escape_string($query);// makes sure nobody uses SQL injection
 					 
-				$raw_results = mysql_query("SELECT sid, location, price, description FROM space
+				$raw_results = mysql_query("SELECT * FROM space
 						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
