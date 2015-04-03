@@ -10,7 +10,7 @@
 				<?php
 				if (isset($_SESSION['username'])){ //displays options only if user is logged in
 				?>
-					<li><a href="profile.php">Profile</a></li>
+					<li><a href="profile.php?u=<?=$_SESSION['username']?>">Profile</a></li>
 				<?php } ?>
 					<li><a href="listings.php">Search Spaces</a></li>
 				<?php

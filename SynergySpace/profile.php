@@ -29,8 +29,8 @@
 		<?php require('header.php');?>
 		<?php 
 			//if user is logged in, get their user info
-			if (isset($_SESSION['username'])) {
-				$username = $_SESSION['username'];
+			if (isset($_GET['u'])) {
+				$username = $_GET['u'];
 				$username = htmlspecialchars($username);
 				$raw_results = mysql_query("SELECT * FROM users
 						WHERE username='".$username."'");
@@ -51,11 +51,16 @@
 						<h5> Age: <?php echo "".$results['age']."";?></h5>
 						<h5> Location: <?php echo "".$results['location']."";?></h5>
 						<h5> Score: <?php echo "".$results['avescore']."";?> </h5>
-						<hr class="sidebreak" />
-						<form action="editprofile.php" method="post">				
-							<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="Edit"/>
-						</form>
-						<br><br>
+						
+						<?php
+						if (isset($_SESSION['username']) and $username == $_SESSION['username']){ ?>
+							
+							<form action="editprofile.php" method="post">				
+								<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="Edit"/>
+							</form>
+							<br><br>
+						<?php } ?>
+						
 					</div>
 				</div>
 				<div class="mainprof">
