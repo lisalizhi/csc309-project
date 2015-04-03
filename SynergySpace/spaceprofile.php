@@ -66,14 +66,15 @@
 				</div>
 			</div>
 			<div class="mainprof">
-				<h3> 
 				<h3><?=$results['name']?>: </h3>
+				<hr class="profbreak" />
+				<p>
 				<?php 
 					//gets the description of the appropriate listing
 					echo "".$results['description']."";
 				?> 
-				</h3>
-				<hr class="profbreak" />				
+				</p>
+								
 			</div>
 			<br>
 			<div class="mainprof">
