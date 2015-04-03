@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 31, 2015 at 05:46 AM
+-- Generation Time: Apr 04, 2015 at 12:07 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -88,12 +88,20 @@ CREATE TABLE IF NOT EXISTS `skilledin` (
 
 CREATE TABLE IF NOT EXISTS `space` (
 `sid` int(11) NOT NULL,
+  `name` varchar(80) NOT NULL,
   `location` varchar(46) NOT NULL,
   `price` int(11) NOT NULL,
   `description` text NOT NULL,
   `ownerusername` varchar(16) NOT NULL,
   `photo` varchar(16) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `space`
+--
+
+INSERT INTO `space` (`sid`, `name`, `location`, `price`, `description`, `ownerusername`, `photo`) VALUES
+(17, 'A test space', 'toronto', 600, 'It''s just a test, tbh', 'test', 'ipanema.jpg');
 
 -- --------------------------------------------------------
 
@@ -125,6 +133,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `location` varchar(46) DEFAULT NULL,
   `avescore` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`username`, `password`, `first`, `last`, `age`, `occupation`, `photo`, `description`, `email`, `location`, `avescore`) VALUES
+('test', 'test', 'Test', 'Testest', 21, 'Tester', 'clazzi cover.jpg', 'I am testing', 'test@test.ca', 'Toronto', NULL);
 
 --
 -- Indexes for dumped tables
@@ -191,7 +206,7 @@ MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 -- AUTO_INCREMENT for table `space`
 --
 ALTER TABLE `space`
-MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Constraints for dumped tables
 --

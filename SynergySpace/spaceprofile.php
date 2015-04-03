@@ -67,7 +67,7 @@
 			</div>
 			<div class="mainprof">
 				<h3> 
-				<h3> Information: </h3>
+				<h3><?=$results['name']?>: </h3>
 				<?php 
 					//gets the description of the appropriate listing
 					echo "".$results['description']."";

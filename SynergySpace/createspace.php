@@ -31,7 +31,9 @@
 				<!-- below are is the information a user can fill out when they want to list a space -->
 				<form action="controller/makespace.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
-
+						<hr class="form_horiz"/>
+						<input type="text" class="float" id="logform" name="name"  placeholder="Name" autocomplete="off">
+						<br>
 						<hr class="form_horiz"/>
 						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off">
 						<br>

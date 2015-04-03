@@ -8,20 +8,23 @@
 				$location = $_POST['location'];
 				$price = $_POST['price'];
 				$description = $_POST['description'];
+				$name = $_POST['name'];
 			
 				$username = htmlspecialchars($username);
 				$location = htmlspecialchars($location);
 				$price = htmlspecialchars($price);
 				$description = htmlspecialchars($description);
+				$name = htmlspecialchars($name);
 			
 				$username = mysql_real_escape_string($username);
 				$location = mysql_real_escape_string($location);// makes sure nobody uses SQL injection
 				$price = mysql_real_escape_string($price);
 				$description = mysql_real_escape_string($description);
+				$name = mysql_real_escape_string($name);
 			
-				if($location and $price and $description and $_FILES["photo"]){
+				if($location and $price and $description and $_FILES["photo"] and $name){
 					//insert information into the space table 
-					$sql = "INSERT INTO space (sid, location, price, description, ownerusername, photo) VALUES (NULL, '$location', '$price', '$description', '$username', '')";	
+					$sql = "INSERT INTO space (sid, name, location, price, description, ownerusername, photo) VALUES (NULL, '$name', '$location', '$price', '$description', '$username', '')";	
 					$retval = mysql_query($sql);
 					if(!$retval ){//error handling
 						die('Could not enter data: ' . mysql_error());

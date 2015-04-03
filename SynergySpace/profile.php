@@ -36,8 +36,18 @@
 						WHERE username='".$username."'");
 				$results = mysql_fetch_array($raw_results);
 				
+				//get spaces user owns
 				$raw_ownspaces = mysql_query("SELECT * FROM space
 						WHERE ownerusername='".$username."'");
+						
+				//get info on where user works
+				$raw_w = mysql_query("SELECT * FROM members
+						WHERE username='".$username."'");
+				$w = mysql_fetch_array($raw_w);	
+				$w_sid = $w['sid'];
+				$w_sid = htmlspecialchars($w_sid);
+				$raw_works = mysql_query("SELECT * FROM space WHERE sid='".$w_sid."'");
+				$works = mysql_fetch_array($raw_works);	
 			}
 		?> 
 		
@@ -50,6 +60,7 @@
 						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 						<h5> Age: <?php echo "".$results['age']."";?></h5>
 						<h5> Location: <?php echo "".$results['location']."";?></h5>
+						<h5> Works at: <a href="spaceprofile.php?sid=<?=$works['sid']?>"><?=$works['name']?></a></h5>
 						<h5> Score: <?php echo "".$results['avescore']."";?> </h5>
 						<hr class="sidebreak" />
 						<form action="editprofile.php" method="post">				
@@ -81,8 +92,8 @@
 						while($ownspaces = mysql_fetch_array($raw_ownspaces)){ 
 							//output formatted results
 							?>
+							<a href="spaceprofile.php?sid=<?=$ownspaces['sid']?>"><h4><?=$ownspaces['name']?></h4></a>
 							<br>
-							<a href="spaceprofile.php?sid=<?=$ownspaces['sid']?>"><h4><?=$ownspaces['location']?></h4></a>
 							<?php 
 						}			 
 					}

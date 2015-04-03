@@ -41,7 +41,7 @@
 							<span class='price'><?=$results['price']?></span>
 							<div class='property_details'>
 								<h1>
-									<?=$results['description']?>
+									<?=$results['name']?>
 								</h1>
 							</div> 
 						</button>
