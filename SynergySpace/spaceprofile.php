@@ -35,6 +35,10 @@
 						WHERE sid='".$sid."'");
 				$results = mysql_fetch_array($raw_results);
 				}  
+				
+				$user = $_SESSION['username'];
+				$raw_owner = mysql_query("SELECT * FROM space
+						WHERE sid='".$sid."' AND ownerusername='".$user."'");
 		?> 
 		
 		<section class="logform">
@@ -59,9 +63,15 @@
 						?> 
 					</h5>
 					<hr class="sidebreak" />
-						<form action="#" method="post">				
-							<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
-						</form>
+						<?php if (mysql_num_rows($raw_owner) > 0){?>
+							<form action="#" method="post">				
+								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
+							</form>
+						<?}else{ ?>
+							<form action="#" method="post">				
+								<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
+							</form>
+						<?php } ?>
 					<br><br>
 				</div>
 			</div>
