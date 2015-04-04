@@ -57,7 +57,7 @@
 			<div class="profiles">
 				<div class="backlinks">
 					<div class="insidelinks">
-						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
+						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture" />
 						<h5> Age: <?php echo "".$results['age']."";?></h5>
 						<h5> Location: <?php echo "".$results['location']."";?></h5>
 						<h5> Works at: <a href="spaceprofile.php?sid=<?=$works['sid']?>"><?=$works['name']?></a></h5>
@@ -186,7 +186,7 @@
 		</section>	
 
 
-<?php require('footer.html');?>
+
 </body>	
 
 </html>
