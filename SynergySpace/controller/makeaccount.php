@@ -33,7 +33,7 @@
 						
 						$sql = "INSERT INTO users (username, password, first, last, age, occupation, 
 						photo, description, email, location, avescore) VALUES ('$username', '$password', 
-						'$fname', '$lname', NULL, NULL, NULL, NULL, '$email', NULL, NULL)";	
+						'$fname', '$lname', NULL, NULL, NULL, NULL, '$email', NULL, 0)";	
 						$retval = mysql_query($sql);
 						if(!$retval ){
 							die('Could not enter data: ' . mysql_error());
