@@ -166,7 +166,7 @@
 							$review = mysql_fetch_array($reviewresults)?>
 							
 							<h4>Rating: <?=$review['score']?>/10</h4>
-							<h5><?=$review['reviewerusername']?></h5>
+							<h5><a href="profile.php?u=<?=$review['reviewerusername']?>"><?=$review['reviewerusername']?></a></h5>
 							<p><?=$review['description']?></p>
 							<br>
 							<p><a href="userreviews.php?u=<?=$user?>">View All</a></p>
