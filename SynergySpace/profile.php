@@ -173,11 +173,24 @@
 						<?php
 						
 						}else{ //there are no reviews ?>
-						
 							<h5>No results</h5>
-							<p><a href="adduserreview.php?u=<?=$user?>">Write a review?</a></p>
-						<br>
-					<?php 
+							
+							<?php
+							if (isset($_SESSION['username'])){
+								$current = $_SESSION['username'];
+								
+								//checks if these users are friends
+								$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$current')
+									OR (username1 = '$current' AND username2 = '$user')");
+								
+								if(mysql_num_rows($check_friend) > 0){//current user is a friend and can write a review
+									?>
+									<p><a href="adduserreview.php?u=<?=$user?>">Write a Review?</a></p>
+								<?php
+								}
+							}?>
+							<br>
+						<?php 
 						}
 					} ?>
 			
