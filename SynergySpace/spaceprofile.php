@@ -68,7 +68,8 @@
 
 					<hr class="sidebreak" />
 						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
-							<form action="#" method="post">				
+							<form action="editspace.php" method="post">		
+								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
 						<?php }else if (mysql_num_rows($in_space) > 0){ ?> 
