@@ -73,10 +73,7 @@
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
 						<?php }else if (mysql_num_rows($in_space) > 0){ ?> 
-							<form action="/controller/addreview.php" method="get">		
-								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
-								<input type="submit" id="rate" class="form_button" name="rate" value="Rate!"/>
-							</form>
+							<a class="side_action" href="addreview.php?sid=<?=$sid?>">Rate</a>
 						<?php }else{ ?> 
 							<form action="controller/expressinterest.php" method="post">
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
@@ -126,7 +123,7 @@
 					
 					}else{ //there are no reviews ?>
 					
-						<h5>There are no reviews for this space!</h5>
+						<p>There are no reviews for this space!</p>
 					<br>
 				<?php 
 					}

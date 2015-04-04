@@ -36,14 +36,14 @@
 						if(!$retval ){//error handling
 							die('Could not enter data: ' . mysql_error());
 						}else{
-							header('Location: ../index.php');
+							header('Location: ../model/reviews.php?sid='.$sid);
 						}
 					}
 				}
 				
 				
 			}else{
-				echo "oops!";
+				
 				header('Location: ../model/reviews.php?sid='.$sid);
 
 			}

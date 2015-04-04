@@ -72,3 +72,16 @@ background-color: #1C3655;
 img .friend{
 float: left;
 }
+
+a.side_action {
+	border: solid 0px;
+	border-radius: 3px;
+	moz-border-radius: 3px;
+	font-size : 20px;
+	font-family: "lato-bold", Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+	padding : 10px 40px;
+	background-color: #666464;
+	float: left;
+	text-decoration: none;
+}
