@@ -3,7 +3,7 @@
 <html lang="en">
 	<header>
 		<div class="wrapper">
-			<a href="index.php"><img src="img/logo2.png" class="logo" alt="" titl=""/></a>
+			<a href="index.php"><img src="img/logo3.png" class="logo" alt="" titl=""/></a>
 			<a href="#" class="hamburger"></a>
 			<nav>
 				<ul>
