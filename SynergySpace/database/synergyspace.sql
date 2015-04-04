@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2015 at 12:07 AM
+-- Generation Time: Apr 04, 2015 at 06:42 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `friendswith` (
 
 CREATE TABLE IF NOT EXISTS `interestedin` (
   `username` varchar(16) NOT NULL,
-  `projectName` varchar(46) NOT NULL
+  `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -53,6 +53,13 @@ CREATE TABLE IF NOT EXISTS `members` (
   `username` varchar(16) NOT NULL,
   `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`username`, `sid`) VALUES
+('starlord', 17);
 
 -- --------------------------------------------------------
 
@@ -67,7 +74,7 @@ CREATE TABLE IF NOT EXISTS `review` (
   `description` text NOT NULL,
   `score` int(11) NOT NULL,
   `sid` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -94,14 +101,15 @@ CREATE TABLE IF NOT EXISTS `space` (
   `description` text NOT NULL,
   `ownerusername` varchar(16) NOT NULL,
   `photo` varchar(16) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `space`
 --
 
 INSERT INTO `space` (`sid`, `name`, `location`, `price`, `description`, `ownerusername`, `photo`) VALUES
-(17, 'A test space', 'toronto', 600, 'It''s just a test, tbh', 'test', 'ipanema.jpg');
+(17, 'A test space', 'toronto', 600, 'It''s just a test, tbh', 'test', 'ipanema.jpg'),
+(19, '80s Spaceship', 'The Galaxy', 1000, 'I''m hooked on a feeling', 'starlord', 'also me.jpg');
 
 -- --------------------------------------------------------
 
@@ -139,6 +147,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`username`, `password`, `first`, `last`, `age`, `occupation`, `photo`, `description`, `email`, `location`, `avescore`) VALUES
+('Batman', 'gotham', 'Bruce', 'Wayne', NULL, NULL, NULL, NULL, 'batman@batcave.com', NULL, NULL),
+('starlord', 'galaxy', 'Peter', 'Quill', 33, 'Legendary Outlaw', 'starlord.png', 'I have pelvic sorcery', 'starlord@galaxy.com', 'Space', NULL),
 ('test', 'test', 'Test', 'Testest', 21, 'Tester', 'clazzi cover.jpg', 'I am testing', 'test@test.ca', 'Toronto', NULL);
 
 --
@@ -155,13 +165,13 @@ ALTER TABLE `friendswith`
 -- Indexes for table `interestedin`
 --
 ALTER TABLE `interestedin`
- ADD KEY `pid` (`username`);
+ ADD KEY `pid` (`username`), ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `members`
 --
 ALTER TABLE `members`
- ADD KEY `pid` (`username`,`sid`), ADD KEY `sid` (`sid`);
+ ADD PRIMARY KEY (`username`,`sid`), ADD KEY `pid` (`username`,`sid`), ADD KEY `sid` (`sid`);
 
 --
 -- Indexes for table `review`
@@ -179,7 +189,7 @@ ALTER TABLE `skilledin`
 -- Indexes for table `space`
 --
 ALTER TABLE `space`
- ADD PRIMARY KEY (`sid`), ADD KEY `ownerid` (`ownerusername`), ADD KEY `ownerid_2` (`ownerusername`);
+ ADD PRIMARY KEY (`sid`), ADD KEY `ownerid` (`ownerusername`), ADD KEY `ownerid_2` (`ownerusername`), ADD KEY `sid` (`sid`), ADD KEY `sid_2` (`sid`), ADD KEY `sid_3` (`sid`);
 
 --
 -- Indexes for table `spaceprojects`
@@ -201,12 +211,12 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `space`
 --
 ALTER TABLE `space`
-MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- Constraints for dumped tables
 --
@@ -223,7 +233,8 @@ ADD CONSTRAINT `friendswith_ibfk_5` FOREIGN KEY (`username2`) REFERENCES `users`
 -- Constraints for table `interestedin`
 --
 ALTER TABLE `interestedin`
-ADD CONSTRAINT `interestedin_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `interestedin_ibfk_1` FOREIGN KEY (`username`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `interestedin_ibfk_2` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `members`
