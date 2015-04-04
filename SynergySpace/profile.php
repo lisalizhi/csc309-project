@@ -145,7 +145,7 @@
 						<p><a href="friends.php?u=<?=$username?>">View All</a></p>
 						<?php
 						}else{ ?>
-						<h5>No results</h5>
+						<h5>No results.</h5>
 						<?php
 							
 						}

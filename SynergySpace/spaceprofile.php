@@ -65,21 +65,30 @@
 						echo "".$results['ownerusername']."";
 						?> 
 					</h5>
+
 					<hr class="sidebreak" />
 						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
 							<form action="#" method="post">				
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
 						<?php }else if (mysql_num_rows($in_space) > 0){ ?> 
-							<form action="/controller/addreview.php" method="post">				
+							<form action="/controller/addreview.php" method="get">		
+								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="rate" class="form_button" name="rate" value="Rate!"/>
 							</form>
 						<?php }else{ ?> 
-							<form action="controller/expressinterest.php" method="post">		
+							<form action="controller/expressinterest.php" method="post">
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
 							</form>
 						<?php } ?>
+						<br><br><br>
+						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
+						<form action="applicants.php" method="get">	
+							<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
+							<input type="submit" id="view_interested" class="form_button" name="view_interested" value="Applicants"/>
+						</form>
+					<?php } ?>
 					<br><br>
 				</div>
 			</div>
