@@ -58,6 +58,7 @@
 						echo "".$results['ownerusername']."";
 						?> 
 					</h5>
+					<h5><a href="spaceprofile.php?sid=<?=$sid?>">Full Profile</a></h5>
 					<?php 
 					$currentuser = $_SESSION['username'];
 					$sid = $_GET['sid'];

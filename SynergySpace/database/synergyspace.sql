@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 04, 2015 at 06:42 PM
+-- Generation Time: Apr 04, 2015 at 07:34 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -43,6 +43,13 @@ CREATE TABLE IF NOT EXISTS `interestedin` (
   `sid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `interestedin`
+--
+
+INSERT INTO `interestedin` (`username`, `sid`) VALUES
+('Batman', 19);
+
 -- --------------------------------------------------------
 
 --
@@ -59,6 +66,7 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`username`, `sid`) VALUES
+('Batman', 17),
 ('starlord', 17);
 
 -- --------------------------------------------------------
@@ -100,16 +108,17 @@ CREATE TABLE IF NOT EXISTS `space` (
   `price` int(11) NOT NULL,
   `description` text NOT NULL,
   `ownerusername` varchar(16) NOT NULL,
-  `photo` varchar(16) NOT NULL
+  `photo` varchar(16) NOT NULL,
+  `score` int(11) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `space`
 --
 
-INSERT INTO `space` (`sid`, `name`, `location`, `price`, `description`, `ownerusername`, `photo`) VALUES
-(17, 'A test space', 'toronto', 600, 'It''s just a test, tbh', 'test', 'ipanema.jpg'),
-(19, '80s Spaceship', 'The Galaxy', 1000, 'I''m hooked on a feeling', 'starlord', 'also me.jpg');
+INSERT INTO `space` (`sid`, `name`, `location`, `price`, `description`, `ownerusername`, `photo`, `score`) VALUES
+(17, 'A test space', 'toronto', 600, 'It''s just a test, tbh', 'test', 'ipanema.jpg', 0),
+(19, '80s Spaceship', 'The Galaxy', 1000, 'I''m hooked on a feeling', 'starlord', 'also me.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -120,6 +129,20 @@ INSERT INTO `space` (`sid`, `name`, `location`, `price`, `description`, `ownerus
 CREATE TABLE IF NOT EXISTS `spaceprojects` (
   `sid` int(11) NOT NULL,
   `projectname` varchar(46) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `userreview`
+--
+
+CREATE TABLE IF NOT EXISTS `userreview` (
+`urid` int(11) NOT NULL,
+  `reviewerusername` varchar(46) NOT NULL,
+  `reviewedusername` varchar(46) NOT NULL,
+  `description` text NOT NULL,
+  `score` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -198,6 +221,12 @@ ALTER TABLE `spaceprojects`
  ADD KEY `sid` (`sid`);
 
 --
+-- Indexes for table `userreview`
+--
+ALTER TABLE `userreview`
+ ADD PRIMARY KEY (`urid`), ADD KEY `reviewerusername` (`reviewerusername`,`reviewedusername`), ADD KEY `reviewedusername` (`reviewedusername`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -217,6 +246,11 @@ MODIFY `rid` int(11) NOT NULL AUTO_INCREMENT;
 --
 ALTER TABLE `space`
 MODIFY `sid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT for table `userreview`
+--
+ALTER TABLE `userreview`
+MODIFY `urid` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -268,6 +302,13 @@ ADD CONSTRAINT `space_ibfk_1` FOREIGN KEY (`ownerusername`) REFERENCES `users` (
 --
 ALTER TABLE `spaceprojects`
 ADD CONSTRAINT `spaceprojects_ibfk_1` FOREIGN KEY (`sid`) REFERENCES `space` (`sid`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `userreview`
+--
+ALTER TABLE `userreview`
+ADD CONSTRAINT `userreview_ibfk_1` FOREIGN KEY (`reviewerusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `userreview_ibfk_2` FOREIGN KEY (`reviewedusername`) REFERENCES `users` (`username`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
