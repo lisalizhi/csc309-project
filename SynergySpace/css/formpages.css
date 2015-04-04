@@ -1,6 +1,11 @@
+body {
+	background: #bfd9f2;
+}
+
 .logform{
     width: 100%;
-    height: 850px;
+    padding-bottom: 200px;
+	height: 300%;
     background: #bfd9f2;
     position: relative;
 	padding-top: 100px;

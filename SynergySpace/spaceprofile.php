@@ -136,11 +136,12 @@
 					}
 				} ?>
 			</div>
+			<br>
 			</div>
 		</div>
 	</section>	
 
-
+	
 <?php require('footer.html');?>
 </body>	
 

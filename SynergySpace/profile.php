@@ -193,8 +193,10 @@
 						<?php 
 						}
 					} ?>
+					
 			
 				</div>
+			<br>	
 			</div>
 		</section>	
 
