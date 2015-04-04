@@ -15,7 +15,7 @@
 		
 		$raw_results = mysql_query("SELECT username, password FROM users
 				WHERE username='".$username."' and password='".$password."'");
-				
+		//checks if there exists a user with given username/password	
 		if(mysql_num_rows($raw_results) == 1){ 
 			$_SESSION['username'] = $username;
 			header('Location: ../index.php');			 

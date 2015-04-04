@@ -49,9 +49,11 @@
 					<h5><a href="profile.php?u=<?=$user?>">Full Profile</a></h5>
 					<?php 
 					if (isset($_GET['u']) and isset($_SESSION['username'])) {
+						//checks if user is logged in and other user is set
 						$user = $_GET['u'];
 						$reviewer = $_SESSION['username'];
-		
+						
+						//checks if users are friend to display reviewing option
 						$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$reviewer')
 							OR (username1 = '$reviewer' AND username2 = '$user')");
 						if(mysql_num_rows($check_friend) > 0){//current user is a friend and can write a review
@@ -83,7 +85,7 @@
 					<div class="mainprof">
 						<h3>There are no reviews for this user!</h3>
 						<?php
-						//checks if users are friends
+						//checks if users are friends to allow the current user to write a review
 						if (isset($_GET['u']) and isset($_SESSION['username'])) {
 							$user = $_GET['u'];
 							$reviewer = $_SESSION['username'];

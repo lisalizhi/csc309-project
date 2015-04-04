@@ -60,6 +60,7 @@
 					</h5>
 					<h5><a href="spaceprofile.php?sid=<?=$sid?>">Full Profile</a></h5>
 					<?php 
+					//checks if user is a member so user to write a review
 					$currentuser = $_SESSION['username'];
 					$sid = $_GET['sid'];
 					$member = mysql_query("SELECT * FROM members
@@ -90,6 +91,7 @@
 					<div class="mainprof">
 						<h3>There are no reviews for this space!</h3>
 						<?php 
+						//checks if user is a member so user can write a review
 						$currentuser = $_SESSION['username'];
 						$sid = $_GET['sid'];
 						$member = mysql_query("SELECT * FROM members

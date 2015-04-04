@@ -44,6 +44,7 @@
 			<div class="profiles">
 				<div class="backlinks">
 					<div class="insidelinks">
+					<!-- displays the user's info -->
 						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 						<h5> Name: <?=$results['first']?> <?=$results['last']?></h5>
 						<h5> Occupation: <?=$results['occupation']?></h5>
@@ -58,18 +59,22 @@
 					</h2>
 					<hr class="profbreak" />
 					<?php
+					//checks if the user is set
 					if (isset($_GET['u'])) {
 						$user = $_GET['u'];
 						$user = htmlspecialchars($user);
+						
 						$friendresults = mysql_query("SELECT * FROM friendswith
 							WHERE username1='$user' OR username2 = '$user'");
-						if(mysql_num_rows($friendresults) > 0){
+						if(mysql_num_rows($friendresults) > 0){ //checks if user has friends
 							while($results = mysql_fetch_array($friendresults)){
+								//selects only friends
 								if ($results['username1'] == $user){
 									$friend = $results['username2'];
 								}else{
 									$friend = $results['username1'];
 								}
+								//retrieves friends' user info
 								$ind = mysql_query("SELECT * FROM users
 									WHERE username= '$friend'");
 								if(mysql_num_rows($ind) > 0){
