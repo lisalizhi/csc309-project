@@ -65,7 +65,7 @@
 			</div>
 		</section>	
 
-	
+<?php require('footer.html');?>
 </body>	
 
 </html>

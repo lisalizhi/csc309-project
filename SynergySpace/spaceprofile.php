@@ -62,10 +62,10 @@
 						echo "".$results['price']."";
 					?> 
 					</h5>
-					<h5> Owner: <?php 
-						//gets the username of the owner of the appropriate listing
-						echo "".$results['ownerusername']."";
-						?> 
+					<h5> Owner: 
+						<!--gets the username of the owner of the appropriate listing-->
+						<a href="profile.php?u=<?=$results['ownerusername']?>"><?=$results['ownerusername']?></a>
+						
 					</h5>
 					
 					<h5> Score: <?php 
@@ -123,16 +123,15 @@
 						$review = mysql_fetch_array($reviewresults)?>
 						
 						<h4>Rating: <?=$review['score']?>/10</h4>
-						<h5><?=$review['reviewerusername']?></h5>
+						<h5><a href="profile.php?u=<?=$review['reviewerusername']?>"><?=$review['reviewerusername']?></a></h5>
 						<p><?=$review['description']?></p>
 						<br>
 						<p><a href="reviews.php?sid=<?=$sid?>">View All</a></p>
 					<?php
 					
 					}else{ //there are no reviews ?>
-					
-						<p>There are no reviews for this space!</p>
-					<br>
+						<h5>There are no reviews for this space!</h5>
+						<br>
 				<?php 
 					}
 				} ?>
