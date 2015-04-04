@@ -38,7 +38,7 @@
 				$query = mysql_real_escape_string($query);// makes sure nobody uses SQL injection
 					 
 				$raw_results = mysql_query("SELECT * FROM space
-						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%')") or die(mysql_error());
+						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%') OR (`name` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
@@ -54,6 +54,9 @@
 								<h1>
 									<?=$results['name']?>
 								</h1>
+								<h3>
+									Score: <?=$results['score']?>
+								</h3>
 							</div> 
 						</button>
 						</form>

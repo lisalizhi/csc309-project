@@ -47,6 +47,7 @@
 									header('Location: ../reviews.php?sid='.$sid);
 								}
 							}
+
 						}
 					}
 				}

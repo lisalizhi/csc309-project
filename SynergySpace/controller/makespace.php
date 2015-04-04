@@ -24,7 +24,7 @@
 			
 				if($location and $price and $description and $_FILES["photo"] and $name){
 					//insert information into the space table 
-					$sql = "INSERT INTO space (sid, name, location, price, description, ownerusername, photo) VALUES (NULL, '$name', '$location', '$price', '$description', '$username', '')";	
+					$sql = "INSERT INTO space (sid, name, location, price, description, ownerusername, photo, score) VALUES (NULL, '$name', '$location', '$price', '$description', '$username', '', 0)";	
 					$retval = mysql_query($sql);
 					if(!$retval ){//error handling
 						die('Could not enter data: ' . mysql_error());

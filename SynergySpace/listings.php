@@ -43,6 +43,9 @@
 								<h1>
 									<?=$results['name']?>
 								</h1>
+								<h3>
+									Score: <?=$results['score']?>
+								</h3>
 							</div> 
 						</button>
 						</form>
