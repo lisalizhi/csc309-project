@@ -36,7 +36,7 @@
 						if(!$retval ){//error handling
 							die('Could not enter data: ' . mysql_error());
 						}else{
-							header('Location: ../model/reviews.php?sid='.$sid);
+							header('Location: ../reviews.php?sid='.$sid);
 						}
 					}
 				}

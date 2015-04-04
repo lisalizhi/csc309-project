@@ -35,13 +35,15 @@
 						WHERE sid='".$sid."'");
 				$results = mysql_fetch_array($raw_results);
 				}  
-				
+
+			if (isset($_SESSION['username'])){
 				//see if user owns this space
 				$user = $_SESSION['username'];
 				$raw_owner = mysql_query("SELECT * FROM space WHERE sid='".$sid."' AND ownerusername='".$user."'");
 						
 				//see if user is already working in this space
 				$in_space = mysql_query("SELECT * FROM members WHERE sid='".$sid."' AND username='".$user."'");
+			}
 		?> 
 		
 		<section class="logform">
@@ -73,21 +75,21 @@
 					</h5>
 
 					<hr class="sidebreak" />
-						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
+						<?php if ((isset($_SESSION['username'])) && (mysql_num_rows($raw_owner) > 0)){ ?> 
 							<form action="editspace.php" method="post">		
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
-						<?php }else if (mysql_num_rows($in_space) > 0){ ?> 
+						<?php }else if ((isset($_SESSION['username'])) && (mysql_num_rows($in_space) > 0)){ ?> 
 							<a class="side_action" href="addreview.php?sid=<?=$sid?>">Rate</a>
-						<?php }else{ ?> 
+						<?php }else if (isset($_SESSION['username'])){ ?> 
 							<form action="controller/expressinterest.php" method="post">
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
 							</form>
 						<?php } ?>
 						<br><br><br>
-						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
+						<?php if ((isset($_SESSION['username'])) && (mysql_num_rows($raw_owner) > 0)){ ?> 
 						<form action="applicants.php" method="get">	
 							<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 							<input type="submit" id="view_interested" class="form_button" name="view_interested" value="Applicants"/>

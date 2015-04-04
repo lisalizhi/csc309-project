@@ -71,7 +71,7 @@
 							if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_file)) {
 								$file = basename( $_FILES["photo"]["name"]);
 								//echo "The file ". $file. " has been uploaded.";
-								$sql = "UPDATE users SET `photo`='$file' WHERE `username`='$username'";
+								$sql = "UPDATE space SET `photo`='$file' WHERE `sid`='$sid'";
 								$retval = mysql_query($sql);
 								if(!$retval ){
 									die('Could not update data: ' . mysql_error());
