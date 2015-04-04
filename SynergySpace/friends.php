@@ -47,7 +47,7 @@
 						<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 						<h5> Name: <?=$results['first']?> <?=$results['last']?></h5>
 						<h5> Occupation: <?=$results['occupation']?></h5>
-						<h5> Location: <?=$results['location']?></h5>
+						<h5><a href="profile.php?u=<?=$username?>"> Full Profile</a></h5>
 						
 						
 					</div>
