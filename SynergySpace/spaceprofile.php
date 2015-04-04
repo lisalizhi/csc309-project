@@ -36,9 +36,12 @@
 				$results = mysql_fetch_array($raw_results);
 				}  
 				
+				//see if user owns this space
 				$user = $_SESSION['username'];
-				$raw_owner = mysql_query("SELECT * FROM space
-						WHERE sid='".$sid."' AND ownerusername='".$user."'");
+				$raw_owner = mysql_query("SELECT * FROM space WHERE sid='".$sid."' AND ownerusername='".$user."'");
+						
+				//see if user is already working in this space
+				$in_space = mysql_query("SELECT * FROM members WHERE sid='".$sid."' AND username='".$user."'");
 		?> 
 		
 		<section class="logform">
@@ -63,12 +66,17 @@
 						?> 
 					</h5>
 					<hr class="sidebreak" />
-						<?php if (mysql_num_rows($raw_owner) > 0){?>
+						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
 							<form action="#" method="post">				
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
-						<?}else{ ?>
-							<form action="#" method="post">				
+						<?php }else if (mysql_num_rows($in_space) > 0){ ?> 
+							<form action="/controller/addreview.php" method="post">				
+								<input type="submit" id="rate" class="form_button" name="rate" value="Rate!"/>
+							</form>
+						<?php }else{ ?> 
+							<form action="controller/expressinterest.php" method="post">		
+								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="interest" class="form_button" name="interest" value="Work here!"/>
 							</form>
 						<?php } ?>

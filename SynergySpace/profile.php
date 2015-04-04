@@ -92,7 +92,7 @@
 					<h3> Spaces </h3>
 					<hr class="profbreak" />
 					<?php
-					if(mysql_num_rows($raw_ownspaces) > 0){ // if one or more rows are returned do following
+					if (mysql_num_rows($raw_ownspaces) > 0){ // if one or more rows are returned do following
 						// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
 						while($ownspaces = mysql_fetch_array($raw_ownspaces)){ 
 							//output formatted results

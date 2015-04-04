@@ -75,7 +75,7 @@
 									die('Could not update data: ' . mysql_error());
 								}
 								else{
-									header('Location: ../profile.php');
+									header('Location: ../profile.php?u='.$_SESSION['username']);
 								}
 							}
 							else {
