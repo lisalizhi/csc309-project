@@ -94,7 +94,7 @@
 				</div>
 			</div>
 			<div class="mainprof">
-				<h3><?=$results['name']?>: </h3>
+				<h3><?=$results['name']?> </h3>
 				<hr class="profbreak" />
 				<p>
 				<?php 
@@ -106,8 +106,31 @@
 			</div>
 			<br>
 			<div class="mainprof">
-				<h3> Reviews: </h3>
+				<h3> Reviews </h3>
 				<hr class="profbreak" />
+				<?php
+				if (isset($_GET['sid'])) {
+					$sid = $_GET['sid'];
+					$sid = htmlspecialchars($sid);
+					$reviewresults = mysql_query("SELECT * FROM review
+							WHERE sid='".$sid."'");
+					if(mysql_num_rows($reviewresults) > 0){ //checks if there are reviews for this space
+						$review = mysql_fetch_array($reviewresults)?>
+						
+						<h4>Rating: <?=$review['score']?>/10</h4>
+						<h5><?=$review['reviewerusername']?></h5>
+						<p><?=$review['description']?></p>
+						<br>
+						<p><a href="reviews.php?sid=<?=$sid?>">View All</a></p>
+					<?php
+					
+					}else{ //there are no reviews ?>
+					
+						<h5>There are no reviews for this space!</h5>
+					<br>
+				<?php 
+					}
+				} ?>
 			</div>
 			</div>
 		</div>

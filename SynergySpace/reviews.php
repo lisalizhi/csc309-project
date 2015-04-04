@@ -42,7 +42,7 @@
 			<div class="profiles">
 			<div class="backlinks">
 				<div class="insidelinks">
-					<img src="img/property_1.jpg" width="200" alt="Thumb!" />
+					<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
 					<h5> Location: <?php 
 						//gets the location of the appropriate listing
 						echo "".$results['location'].""; 
@@ -58,7 +58,14 @@
 						echo "".$results['ownerusername']."";
 						?> 
 					</h5>
-					<h5><a href="addreview.php?sid=<?=$sid?>">Write a Review</a></h5>
+					<?php 
+					$currentuser = $_SESSION['username'];
+					$sid = $_GET['sid'];
+					$member = mysql_query("SELECT * FROM members
+							WHERE username='$currentuser' AND sid = '$sid'");
+					if(mysql_num_rows($member) > 0){ ?>
+						<h5><a href="addreview.php?sid=<?=$sid?>">Write a Review</a></h5>
+					<?php } ?>
 				</div>
 			</div>
 			<?php
@@ -81,7 +88,15 @@
 				}else{ //there are no reviews ?>
 					<div class="mainprof">
 						<h3>There are no reviews for this space!</h3>
+						<?php 
+						$currentuser = $_SESSION['username'];
+						$sid = $_GET['sid'];
+						$member = mysql_query("SELECT * FROM members
+							WHERE username='$currentuser' AND sid = '$sid'");
+						if(mysql_num_rows($member) > 0){ ?>
 						<h5><a href="addreview.php?sid=<?=$sid?>">Write a Review?</a></h5>
+						<?php } ?>
+						
 						<hr class="profbreak" />
 					</div>
 					<br>
