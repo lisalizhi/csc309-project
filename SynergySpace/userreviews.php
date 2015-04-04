@@ -28,11 +28,11 @@
 		
 		<?php 
 			//gets the sid of the appropriate listing and queries for its info
-			if (isset($_GET['sid'])) {
-				$sid = $_GET['sid'];
-				$sid = htmlspecialchars($sid);
-				$raw_results = mysql_query("SELECT * FROM space
-						WHERE sid='".$sid."'");
+			if (isset($_GET['u'])) {
+				$user = $_GET['u'];
+				$user = htmlspecialchars($user);
+				$raw_results = mysql_query("SELECT * FROM users
+						WHERE username='".$user."'");
 				$results = mysql_fetch_array($raw_results);
 				}  
 		?> 
@@ -43,40 +43,25 @@
 			<div class="backlinks">
 				<div class="insidelinks">
 					<img src="uploads/<?=$results['photo']?>" width="200" alt="Profile Picture!" />
-					<h5> Location: <?php 
-						//gets the location of the appropriate listing
-						echo "".$results['location'].""; 
-					?> 
-					</h5>
-					<h5> Price: <?php 
-						//gets the price of the appropriate listing
-						echo "".$results['price']."";
-					?> 
-					</h5>
-					<h5> Owner: <?php 
-						//gets the username of the owner of the appropriate listing
-						echo "".$results['ownerusername']."";
-						?> 
-					</h5>
-					<h5><a href="spaceprofile.php?sid=<?=$sid?>">Full Profile</a></h5>
-					<?php 
-					$currentuser = $_SESSION['username'];
-					$sid = $_GET['sid'];
-					$member = mysql_query("SELECT * FROM members
-							WHERE username='$currentuser' AND sid = '$sid'");
-					if(mysql_num_rows($member) > 0){ ?>
-						<h5><a href="addreview.php?sid=<?=$sid?>">Write a Review</a></h5>
-					<?php } ?>
+					<h5><?=$results['first']?> <?=$results['last']?></h5>
+					<h5> Occupation: <?=$results['occupation']?></h5>
+					<h5> Location: <?=$results['location']?></h5>
+					<h5><a href="profile.php?u=<?=$user?>">Full Profile</a></h5>
+					<?php
+					 if (isset($_SESSION['username'])){ ?>
+						<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review</a></h5>
+					<?php
+					 } ?>
 				</div>
 			</div>
 			<?php
-			if (isset($_GET['sid'])) {
-				$sid = $_GET['sid'];
-				$sid = htmlspecialchars($sid);
-				$reviewresults = mysql_query("SELECT * FROM review
-						WHERE sid='".$sid."'");
-				if(mysql_num_rows($reviewresults) > 0){ //checks if there are reviews for this space
-					while($review = mysql_fetch_array($reviewresults)){ ?>
+			if (isset($_GET['u'])) {
+				$user = $_GET['u'];
+				$user = htmlspecialchars($user);
+				$userresults = mysql_query("SELECT * FROM userreview
+						WHERE reviewedusername='".$user."'");
+				if(mysql_num_rows($userresults) > 0){ //checks if there are reviews for this user
+					while($review = mysql_fetch_array($userresults)){ ?>
 						<div class="mainprof">
 							<h3>Rating: <?=$review['score']?>/10</h3>
 							<h4><a href="profile.php?u=<?=$review['reviewerusername']?>"><?=$review['reviewerusername']?></a></h4>
@@ -88,16 +73,9 @@
 					}
 				}else{ //there are no reviews ?>
 					<div class="mainprof">
-						<h3>There are no reviews for this space!</h3>
-						<?php 
-						$currentuser = $_SESSION['username'];
-						$sid = $_GET['sid'];
-						$member = mysql_query("SELECT * FROM members
-							WHERE username='$currentuser' AND sid = '$sid'");
-						if(mysql_num_rows($member) > 0){ ?>
-						<h5><a href="addreview.php?sid=<?=$sid?>">Write a Review?</a></h5>
-						<?php } ?>
-						
+						<h3>There are no reviews for this user!</h3>
+						<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review?</a></h5>
+
 						<hr class="profbreak" />
 					</div>
 					<br>

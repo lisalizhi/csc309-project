@@ -36,7 +36,17 @@
 						if(!$retval ){//error handling
 							die('Could not enter data: ' . mysql_error());
 						}else{
-							header('Location: ../model/reviews.php?sid='.$sid);
+							$score_results = mysql_query("SELECT AVG(score) AS average FROM review WHERE sid='$sid'");
+							if(mysql_num_rows($score_results) == 1){
+								$averesults = mysql_fetch_array($score_results);
+								$avescore = $averesults['average'];
+								$updatescores = mysql_query("UPDATE space SET score = '$avescore' WHERE sid= '$sid'");
+								if(!$updatescores ){//error handling
+									die('Could not enter data: ' . mysql_error());
+								}else{
+									header('Location: ../reviews.php?sid='.$sid);
+								}
+							}
 						}
 					}
 				}
@@ -44,7 +54,7 @@
 				
 			}else{
 				
-				header('Location: ../model/reviews.php?sid='.$sid);
+				header('Location: ../reviews.php?sid='.$sid);
 
 			}
 		}else{
