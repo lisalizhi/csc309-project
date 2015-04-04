@@ -62,7 +62,7 @@
 					$rating = htmlspecialchars($rating);				 
 					$rating = mysql_real_escape_string($rating);
 					
-					$query .= " AND (`avescore`>'$rating')";
+					$query .= " AND (`score`>'$rating')";
 				}
 				
 				$raw_results = mysql_query($query) or die(mysql_error());
@@ -81,6 +81,9 @@
 								<h1>
 									<?=$results['name']?>
 								</h1>
+								<h3>
+									Score: <?=$results['score']?>
+								</h3>
 							</div> 
 						</button>
 						</form>

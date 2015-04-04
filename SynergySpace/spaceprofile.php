@@ -65,6 +65,12 @@
 						echo "".$results['ownerusername']."";
 						?> 
 					</h5>
+					
+					<h5> Score: <?php 
+						//gets the score of the appropriate listing
+						echo "".$results['score']."";
+						?> 
+					</h5>
 
 					<hr class="sidebreak" />
 						<?php if (mysql_num_rows($raw_owner) > 0){ ?> 
