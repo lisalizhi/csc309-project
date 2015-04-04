@@ -150,10 +150,37 @@
 							
 						}
 					}?>
-					
-					
-					
+	
 				</div>
+				<br>
+				<div class="mainprof">
+					<h3> Reviews </h3>
+					<hr class="profbreak" />
+					<?php
+					if (isset($_GET['u'])) {
+						$user = $_GET['u'];
+						$user = htmlspecialchars($user);
+						$reviewresults = mysql_query("SELECT * FROM userreview
+								WHERE reviewedusername='".$user."'");
+						if(mysql_num_rows($reviewresults) > 0){ //checks if there are reviews for this space
+							$review = mysql_fetch_array($reviewresults)?>
+							
+							<h4>Rating: <?=$review['score']?>/10</h4>
+							<h5><?=$review['reviewerusername']?></h5>
+							<p><?=$review['description']?></p>
+							<br>
+							<p><a href="userreviews.php?u=<?=$user?>">View All</a></p>
+						<?php
+						
+						}else{ //there are no reviews ?>
+						
+							<h5>No results</h5>
+							<p><a href="adduserreview.php?u=<?=$user?>">Write a review?</a></p>
+						<br>
+					<?php 
+						}
+					} ?>
+			
 			</div>
 		</div>
 	</section>	
