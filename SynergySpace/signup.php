@@ -29,17 +29,17 @@
 				<form action="controller/makeaccount.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="email" placeholder="Email"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="email" placeholder="Email"  autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off" required>
 						<hr class="form_horiz"/>
-						<input type="password" class="float" id="logform" name="password" placeholder="Password"  autocomplete="off">
+						<input type="password" class="float" id="logform" name="password" placeholder="Password"  autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="password" class="float" id="logform" name="repassword" placeholder="Retype Password"  autocomplete="off">					
+						<input type="password" class="float" id="logform" name="repassword" placeholder="Retype Password"  autocomplete="off" required>					
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="fname" placeholder="First Name"  autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off">									
+						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name"  autocomplete="off" required>									
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="submit_search" class="form_button" name="submit_search" value="submit"/>

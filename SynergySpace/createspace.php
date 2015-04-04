@@ -32,18 +32,18 @@
 				<form action="controller/makespace.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="name"  placeholder="Name" autocomplete="off">
+						<input type="text" class="float" id="logform" name="name"  placeholder="Name" autocomplete="off" required>
 						<br>
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off">
+						<input type="text" class="float" id="logform" name="location"  placeholder="Location" autocomplete="off" required>
 						<br>
 						<hr class="form_vert"/>
-						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" autocomplete="off">
+						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" autocomplete="off" required>
 						<br>
 						<hr class="form_horiz"/>
-						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description"></textarea>
+						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description" required></textarea>
 						<hr class="form_vert"/>
-						<input type="file" class="float" id="logform" name="photo" accept="image/*">
+						<input type="file" class="float" id="logform" name="photo" accept="image/*" required>
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="spacecreate" class="form_button" name="spacecreate" value="submit"/>

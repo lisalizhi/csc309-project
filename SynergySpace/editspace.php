@@ -46,16 +46,16 @@
 					<div class="search_fields">
 						<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="name"  placeholder="Name" value="<?=$results['name']?>" autocomplete="off">
+						<input type="text" class="float" id="logform" name="name"  placeholder="Name" value="<?=$results['name']?>" autocomplete="off" required>
 						<br>
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="location"  placeholder="Location" value="<?=$results['location']?>" autocomplete="off">
+						<input type="text" class="float" id="logform" name="location"  placeholder="Location" value="<?=$results['location']?>" autocomplete="off" required>
 						<br>
 						<hr class="form_vert"/>
-						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" value="<?=$results['price']?>" autocomplete="off">
+						<input type="number" min="0" class="float" id="logform" name="price" placeholder="Price" value="<?=$results['price']?>" autocomplete="off" required>
 						<br>
 						<hr class="form_horiz"/>
-						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description"><?=$results['description']?></textarea>
+						<textarea name="description" class="float" rows="15" cols="45" placeholder="Description" required><?=$results['description']?></textarea>
 						<hr class="form_vert"/>
 						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 					</div>

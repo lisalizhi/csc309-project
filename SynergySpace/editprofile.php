@@ -42,18 +42,18 @@
 				<form action="controller/updateprofile.php" method="post" enctype="multipart/form-data">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="fname" placeholder="First Name" value="<?=$results['first']?>"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="fname" placeholder="First Name" value="<?=$results['first']?>"  autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name" value="<?=$results['last']?>"  autocomplete="off">	
+						<input type="text" class="float" id="logform" name="lname" placeholder="Last Name" value="<?=$results['last']?>"  autocomplete="off" required>	
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="location" placeholder="Location"  value="<?=$results['location']?>" autocomplete="off">
+						<input type="text" class="float" id="logform" name="location" placeholder="Location"  value="<?=$results['location']?>" autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  value="<?=$results['occupation']?>" autocomplete="off">
-						<input type="number" class="float" id="logform" name="age" placeholder="Age"  value="<?=$results['age']?>" autocomplete="off">
+						<input type="text" class="float" id="logform" name="occupation" placeholder="Occupation"  value="<?=$results['occupation']?>" autocomplete="off" required>
+						<input type="number" class="float" id="logform" name="age" placeholder="Age"  value="<?=$results['age']?>" autocomplete="off" required>
 						<hr class="form_vert"/>
-						<input type="email" class="float" id="logform" name="email" placeholder="Email"  value="<?=$results['email']?>" autocomplete="off">	
+						<input type="email" class="float" id="logform" name="email" placeholder="Email"  value="<?=$results['email']?>" autocomplete="off" required>	
 						<hr class="form_horiz"/>
-						<textarea name="description" rows="15" cols="45" placeholder="Description"><?=$results['description']?></textarea>
+						<textarea name="description" rows="15" cols="45" placeholder="Description" required><?=$results['description']?></textarea>
 						<hr class="form_vert"/>
 						<input type="file" class="float" id="logform" name="photo" accept="image/*">
 										

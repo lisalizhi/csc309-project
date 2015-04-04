@@ -30,11 +30,11 @@
 				<form action="controller/loginvalidate.php" method="post">
 					<div class="search_fields">
 						<hr class="form_horiz"/>
-						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off">
+						<input type="text" class="float" id="logform" name="username" placeholder="Username"  autocomplete="off" required>
 				
 						<hr class="form_vert"/>
 				
-						<input type="password" class="float" id="logform" name="password" placeholder="Password"  autocomplete="off">
+						<input type="password" class="float" id="logform" name="password" placeholder="Password"  autocomplete="off" required>
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="submit_login" class="form_button" name="submit_login" value="submit"/>

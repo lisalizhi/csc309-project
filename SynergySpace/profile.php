@@ -181,9 +181,9 @@
 						}
 					} ?>
 			
+				</div>
 			</div>
-		</div>
-	</section>	
+		</section>	
 
 
 <?php require('footer.html');?>

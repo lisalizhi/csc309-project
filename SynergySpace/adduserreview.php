@@ -35,9 +35,9 @@
 					<form action="controller/userreviewcont.php?u=<?=$user?>" method="post" enctype="multipart/form-data">
 						<div class="search_fields">
 							<hr class="form_horiz"/>
-							<input type="number" class="float" id="logform" name="rating" placeholder="Rating" min="1" max="10" autocomplete="off">
+							<input type="number" class="float" id="logform" name="rating" placeholder="Rating" min="1" max="10" autocomplete="off" required>
 							<hr class="form_vert"/>
-							<textarea name="review" rows="15" cols="45" placeholder="Review"/></textarea>
+							<textarea name="review" rows="15" cols="45" placeholder="Review" required/></textarea>
 							<br>
 						</div>
 						<hr class="form_horiz"/>					
