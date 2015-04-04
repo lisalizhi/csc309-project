@@ -18,24 +18,34 @@
 			$score = mysql_real_escape_string($score);
 			$description = mysql_real_escape_string($description);
 			
+			$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$reviewer')
+			OR (username1 = '$reviewer' AND username2 = '$user')");
 			
+			if(mysql_num_rows($check_friend) == 0){//Checks if users are friends
+				echo "You can only review your friends!";
+			}else{ //users are friends
+				
 				if ($user == $reviewer){ //checks if user is reviewing their own profile
 					echo "You can't review yourself!";
 				}else{
 					$dup_results = mysql_query("SELECT * FROM userreview WHERE reviewerusername='$reviewer' AND reviewedusername = '$user'");
+					
 					if(mysql_num_rows($dup_results) > 0){ //checks if current user has already reviewed this user
 						echo "You've already reviewed this user!";
-					}else{
+					}else{ //adds review
 						$sql = "INSERT INTO userreview (urid, reviewerusername, reviewedusername, description, score) VALUES (NULL, '$reviewer', '$user', '$description', '$score')";	
 						$retval = mysql_query($sql);
+						
 						if(!$retval ){//error handling
 							die('Could not enter data: ' . mysql_error());
-						}else{
+						}else{ //updates user's average score
 							$score_results = mysql_query("SELECT AVG(score) AS average FROM userreview WHERE reviewedusername='$user'");
+							
 							if(mysql_num_rows($score_results) == 1){
 								$averesults = mysql_fetch_array($score_results);
 								$avescore = $averesults['average'];
 								$updatescores = mysql_query("UPDATE users SET avescore = '$avescore' WHERE username= '$user'");
+								
 								if(!$updatescores ){//error handling
 									die('Could not enter data: ' . mysql_error());
 								}else{
@@ -45,7 +55,7 @@
 						}
 					}
 				}
-				
+			}
 				
 
 		}else{

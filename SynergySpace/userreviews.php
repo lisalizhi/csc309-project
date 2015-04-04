@@ -47,11 +47,19 @@
 					<h5> Occupation: <?=$results['occupation']?></h5>
 					<h5> Location: <?=$results['location']?></h5>
 					<h5><a href="profile.php?u=<?=$user?>">Full Profile</a></h5>
-					<?php
-					 if (isset($_SESSION['username'])){ ?>
-						<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review</a></h5>
-					<?php
-					 } ?>
+					<?php 
+					if (isset($_GET['u']) and isset($_SESSION['username'])) {
+						$user = $_GET['u'];
+						$reviewer = $_SESSION['username'];
+		
+						$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$reviewer')
+							OR (username1 = '$reviewer' AND username2 = '$user')");
+						if(mysql_num_rows($check_friend) > 0){//current user is a friend and can write a review
+						?>
+						<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review?</a></h5>
+						<?php
+						}
+					}?>
 				</div>
 			</div>
 			<?php
@@ -74,8 +82,20 @@
 				}else{ //there are no reviews ?>
 					<div class="mainprof">
 						<h3>There are no reviews for this user!</h3>
-						<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review?</a></h5>
-
+						<?php
+						//checks if users are friends
+						if (isset($_GET['u']) and isset($_SESSION['username'])) {
+							$user = $_GET['u'];
+							$reviewer = $_SESSION['username'];
+			
+							$check_friend = mysql_query("SELECT * FROM friendswith WHERE (username1 = '$user' AND username2 = '$reviewer')
+								OR (username1 = '$reviewer' AND username2 = '$user')");
+							if(mysql_num_rows($check_friend) > 0){//current user is a friend and can write a review
+							?>
+							<h5><a href="adduserreview.php?u=<?=$user?>">Write a Review?</a></h5>
+							<?php
+							}
+						}?>
 						<hr class="profbreak" />
 					</div>
 					<br>
