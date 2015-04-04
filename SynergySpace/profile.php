@@ -118,15 +118,20 @@
 						$user = $_GET['u'];
 						$user = htmlspecialchars($user);
 						$i = 0;
+						
+						//used for listing friends
 						$friendresults = mysql_query("SELECT * FROM friendswith
 							WHERE username1='$user' OR username2 = '$user'");
-						if(mysql_num_rows($friendresults) > 0){
+						if(mysql_num_rows($friendresults) > 0){ //checks if user has friends
 							while($results = mysql_fetch_array($friendresults) and $i < 4){
+								//only displays a few friends
+								//checks for different users
 								if ($results['username1'] == $user){
 									$friend = $results['username2'];
 								}else{
 									$friend = $results['username1'];
 								}
+								//retrieves info for each friend
 								$ind = mysql_query("SELECT * FROM users
 									WHERE username= '$friend'");
 								if(mysql_num_rows($ind) > 0){
