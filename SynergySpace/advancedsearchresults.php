@@ -27,52 +27,71 @@
 	<!-- Listing results from basic search -->
 	<section class="listings">
 		<div class="wrapper">
+			<ul class="properties_list">
 			<?php
 				require('/controller/connect.php');
 
-				$location = $_POST['city'];// gets value sent over search form	
-				$location = htmlspecialchars($location);// changes characters used in html to their equivalents,ex. < to &gt;				 
-				$location = mysql_real_escape_string($location);// makes sure nobody uses SQL injection
+				$query = "SELECT * FROM space
+						WHERE  1 ";
+				if (isset($_POST['city']) && ($_POST['city'] != "")){
+					$location = $_POST['city'];// gets value sent over search form	
+					$location = htmlspecialchars($location);// changes characters used in html to their equivalents,ex. < to &gt;				 
+					$location = mysql_real_escape_string($location);// makes sure nobody uses SQL injection
+					
+					$query .= " AND (`location`='$location')";
+				}
 				
-				$minprice = $_POST['min_price'];// gets min price sent over search form	
-				$minprice = htmlspecialchars($minprice);				 
-				$minprice = mysql_real_escape_string($minprice);
+				if (isset($_POST['min_price']) && ($_POST['min_price'] != "")){
+					$minprice = $_POST['min_price'];// gets min price sent over search form	
+					$minprice = htmlspecialchars($minprice);				 
+					$minprice = mysql_real_escape_string($minprice);
+					
+					$query .= " AND (`price`>'$minprice')";
+				}
 				
-				$maxprice = $_POST['max_price'];// gets min price sent over search form	
-				$maxprice = htmlspecialchars($maxprice);				 
-				$maxprice = mysql_real_escape_string($maxprice);
+				if(isset($_POST['max_price']) && ($_POST['max_price'] != "")){
+					$maxprice = $_POST['max_price'];// gets min price sent over search form	
+					$maxprice = htmlspecialchars($maxprice);				 
+					$maxprice = mysql_real_escape_string($maxprice);
+					
+					$query .= " AND (`price`<'$maxprice')";
+				}
 				
-				$rating = $_POST['rating'];// gets min price sent over search form	
-				$rating = htmlspecialchars($rating);				 
-				$rating = mysql_real_escape_string($rating);
-					 
-				$raw_results = mysql_query("SELECT sid, location, price, description FROM space
-						WHERE (`location`='$location') AND (`price`>'$minprice') AND (`price`<'$maxprice')") or die(mysql_error());// AND (`rating`>='$rating') ") or die(mysql_error());
+				if(isset($_POST['rating']) && ($_POST['rating'] != "")){
+					$rating = $_POST['rating'];// gets min price sent over search form	
+					$rating = htmlspecialchars($rating);				 
+					$rating = mysql_real_escape_string($rating);
+					
+					$query .= " AND (`avescore`>'$rating')";
+				}
+				
+				$raw_results = mysql_query($query) or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results
 						?>
-						<form action="spaceprofile.php" method="post">
 						<li>
-						<button type="submit" value="<?=$results['sid']?>">
-							<img src="<?=$results['image']?>" class="property_img"/>
+						<form action="spaceprofile.php" method="get">
+						<button type="submit" name="sid" value="<?=$results['sid']?>">
+							<img src="uploads/<?=$results['photo']?>" class="property_img"/>
 							<span class='price'><?=$results['price']?></span>
 							<div class='property_details'>
 								<h1>
-									<?=$results['description']?>
+									<?=$results['name']?>
 								</h1>
-							</div>
+							</div> 
 						</button>
-						</li> 
 						</form>
+						</li>
 						<?php }			 
 					}
 				else{ // if there is no matching rows do following
 					echo "No results";
 				}	
-		?>
+			?>
+			</ul>
 		</div>
 	</section>	<!--  end listing section  -->
 

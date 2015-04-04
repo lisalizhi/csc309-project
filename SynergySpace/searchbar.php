@@ -23,7 +23,7 @@
 
 						<input type="number" min="0" class="float" id="max_price" name="max_price" placeholder="Max. price"  autocomplete="off">
 					</div>
-					<input type="number" min="0" max="5" id="keywords" name="rating" placeholder="Min. Rating"  autocomplete="off">
+					<input type="number" min="0" max="10" id="keywords" name="rating" placeholder="Min. Rating"  autocomplete="off">
 					<input type="submit" id="submit_search" name="submit_search"/>
 				</form>
 			</div>
