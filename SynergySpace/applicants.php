@@ -36,29 +36,37 @@
 		<div class="wrapper">
 		<br>
 		<h1>Accept or decline applicants</h1>
-			<?php
+			<section class="listings">
+			<div class="wrapper">
+				<ul class="properties_list">
+				<?php
 				if (mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
 					// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results?>
-						<form action="controller/makespace.php" method="post" enctype="multipart/form-data">
+						<li>
+						<div class="wrapper">
+						<form action="controller/rejectoraccept.php" method="post" enctype="multipart/form-data">
 							<div class="search_fields">
 								<h2><a href="profile.php?u=<?=$results['username']?>"><?=$results['username'] ?></a></h2>	
 								<input type="hidden" class="float" id="logform" name="username" value="<?=$results['username']?>" autocomplete="off">
 								<input type="hidden" class="float" id="logform" name="sid" value="<?=$results['sid']?>" autocomplete="off">
-							</div>
-							<hr class="form_horiz"/>					
+							</div>					
 							<input type="submit" id="accept" class="form_button" name="accept" value="Accept"/>
 							<input type="submit" id="decline" class="form_button" name="decline" value="Decline"/>
 						</form>	
+						</div>
+						</li>
 					<?php 
 					}			 
 				}
 				else{ // if there is no matching rows do following
 					echo "No one has expressed interest in this space.";
 				}
-			?>
-				
+				?>
+				</ul>
+		</div>
+		</section>
 		</div>
 	</section>
 
