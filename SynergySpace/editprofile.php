@@ -60,7 +60,6 @@
 					</div>
 					<hr class="form_horiz"/>					
 					<input type="submit" id="edit_profile" class="form_button" name="edit_profile" value="submit"/>
-					<input type="submit" id="submit_search" class="form_button" name="cancel_search" value="cancel"/>
 				</form>	
 			</div>
 		</section>	
