@@ -22,7 +22,7 @@
 	<section class="topper">
 		<?php require('header.php');?>
 
-	
+		<!-- Registration form -->
 		<section class="logform">
 			<div class="wrapper">
 				<h1>Signup</h1>

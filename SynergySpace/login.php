@@ -26,6 +26,7 @@
 		<section class="logform">
 		<div class="wrapper">
 			<br>
+			<!-- Login form -->
 			<h1>Login</h1>
 				<form action="controller/loginvalidate.php" method="post">
 					<div class="search_fields">

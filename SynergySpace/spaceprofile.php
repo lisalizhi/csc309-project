@@ -75,13 +75,16 @@
 					</h5>
 
 					<hr class="sidebreak" />
+						<!-- Display edit button if the user owns this space -->
 						<?php if ((isset($_SESSION['username'])) && (mysql_num_rows($raw_owner) > 0)){ ?> 
 							<form action="editspace.php" method="post">		
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
 								<input type="submit" id="edit_space" class="form_button" name="edit_space" value="Edit!"/>
 							</form>
+						<!-- Displays add review if the user works in this space -->
 						<?php }else if ((isset($_SESSION['username'])) && (mysql_num_rows($in_space) > 0)){ ?> 
 							<a class="side_action" href="addreview.php?sid=<?=$sid?>">Rate</a>
+						<!-- Displays express interest otherwise (user must be logged in) -->
 						<?php }else if (isset($_SESSION['username'])){ ?> 
 							<form action="controller/expressinterest.php" method="post">
 								<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
@@ -89,6 +92,7 @@
 							</form>
 						<?php } ?>
 						<br><br><br>
+						<!-- Display view applicants button if this is the user's space -->
 						<?php if ((isset($_SESSION['username'])) && (mysql_num_rows($raw_owner) > 0)){ ?> 
 						<form action="applicants.php" method="get">	
 							<input type="hidden" name="sid"  value="<?=$sid?>" autocomplete="off">
@@ -112,6 +116,7 @@
 			<br>
 			<div class="mainprof">
 				<h3> Reviews </h3>
+				<!--Displays reviews for this space -->
 				<hr class="profbreak" />
 				<?php
 				if (isset($_GET['sid'])) {

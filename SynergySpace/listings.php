@@ -30,7 +30,7 @@
 				$raw_results = mysql_query("SELECT * FROM space LIMIT 30") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
+				// return up to 30 random spaces
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results
 						?>
@@ -52,7 +52,7 @@
 						</li>
 						<?php }			 
 					}
-				else{ // if there is no matching rows do following
+				else{ // if there is no spaces
 					echo "No results";
 				}	
 			?>

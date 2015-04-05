@@ -25,7 +25,7 @@
 		<?php require('header.php');?>
 		
 		<?php 
-			//get the old user info
+			//get the old user info to fill in the form as a default
 			
 			$username = $_SESSION['username'];
 			$username = htmlspecialchars($username);

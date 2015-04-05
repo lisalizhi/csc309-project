@@ -41,9 +41,8 @@
 				<ul class="properties_list">
 				<?php
 				if (mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-					// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
 					while($results = mysql_fetch_array($raw_results)){ 
-						//output formatted results?>
+						//output formatted applicants who have applied for this space with reject or accept buttons?>
 						<li>
 						<div class="wrapper">
 						<form action="controller/rejectoraccept.php" method="post" enctype="multipart/form-data">
@@ -60,7 +59,7 @@
 					<?php 
 					}			 
 				}
-				else{ // if there is no matching rows do following
+				else{ // if there is applicants for this space do following
 					echo "No one has expressed interest in this space.";
 				}
 				?>

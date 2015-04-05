@@ -31,8 +31,11 @@
 			<?php
 				require('/controller/connect.php');
 
+				//basic query gets all spaces
 				$query = "SELECT * FROM space
 						WHERE  1 ";
+
+				//adds location requirement to query if the user has set it
 				if (isset($_POST['city']) && ($_POST['city'] != "")){
 					$location = $_POST['city'];// gets value sent over search form	
 					$location = htmlspecialchars($location);// changes characters used in html to their equivalents,ex. < to &gt;				 
@@ -40,7 +43,7 @@
 					
 					$query .= " AND (`location`='$location')";
 				}
-				
+				//adds minimum price requirement to query if the user has set it
 				if (isset($_POST['min_price']) && ($_POST['min_price'] != "")){
 					$minprice = $_POST['min_price'];// gets min price sent over search form	
 					$minprice = htmlspecialchars($minprice);				 
@@ -48,7 +51,7 @@
 					
 					$query .= " AND (`price`>'$minprice')";
 				}
-				
+				//adds maximum price requirement to query if the user has set it
 				if(isset($_POST['max_price']) && ($_POST['max_price'] != "")){
 					$maxprice = $_POST['max_price'];// gets min price sent over search form	
 					$maxprice = htmlspecialchars($maxprice);				 
@@ -56,7 +59,7 @@
 					
 					$query .= " AND (`price`<'$maxprice')";
 				}
-				
+				//adds minimum rating requirement to query if the user has set it
 				if(isset($_POST['rating']) && ($_POST['rating'] != "")){
 					$rating = $_POST['rating'];// gets min price sent over search form	
 					$rating = htmlspecialchars($rating);				 
@@ -67,8 +70,7 @@
 				
 				$raw_results = mysql_query($query) or die(mysql_error());
 						
-				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
+				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned, return the formatted spaces information
 					while($results = mysql_fetch_array($raw_results)){ 
 						//output formatted results
 						?>

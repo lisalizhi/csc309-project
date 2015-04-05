@@ -41,9 +41,8 @@
 						WHERE (`location`='$query') OR (`description` LIKE '%".$query."%') OR (`name` LIKE '%".$query."%')") or die(mysql_error());
 						
 				if(mysql_num_rows($raw_results) > 0){ // if one or more rows are returned do following
-				// $results = mysql_fetch_array($raw_results) puts data from database into array, while it's valid it prints the formatted data in the loop
+				//return formatted search results
 					while($results = mysql_fetch_array($raw_results)){ 
-						//output formatted results
 						?>
 						<li>
 						<form action="spaceprofile.php" method="get">

@@ -8,13 +8,13 @@
 			<nav>
 				<ul>
 				<?php
-				if (isset($_SESSION['username'])){ //displays options only if user is logged in
+				if (isset($_SESSION['username'])){ //displays profile options only if user is logged in
 				?>
 					<li><a href="profile.php?u=<?=$_SESSION['username']?>">Profile</a></li>
 				<?php } ?>
 					<li><a href="listings.php">Search Spaces</a></li>
 				<?php
-				if (isset($_SESSION['username'])){ ?>
+				if (isset($_SESSION['username'])){ //displays list a space option only if user is logged in?>
 					<li><a href="createspace.php">List a Space</a></li>
 				<?php } ?>
 				</ul>

@@ -25,7 +25,7 @@
 	<?php require('header.php');?>
 	
 	<?php 
-		//get the old user info
+		//get the old space info to fill in the form as a default
 			
 		$sid = $_POST['sid'];
 		$sid = htmlspecialchars($sid);
