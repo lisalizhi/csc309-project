@@ -10,12 +10,14 @@
 			$sid = htmlspecialchars($sid);	
 			$username = htmlspecialchars($username);			
 			
+			//add applicant to members table with this space
 			$sql = "INSERT INTO members (username, sid) VALUES ('$username', '$sid')";	
 			$retval = mysql_query($sql);
 			if(!$retval ){//error handling
 				die('There was an error: ' . mysql_error());
 			}
 			else{
+				//remove user from interestedin table
 				$sql = "DELETE FROM interestedin where `username`='$username' AND `sid`='$sid'";	
 				$retval = mysql_query($sql);
 				if(!$retval ){//error handling
@@ -25,6 +27,7 @@
 					//get username of users in space
 					$raw_results = mysql_query("SELECT * FROM members WHERE sid='$sid'");
 					
+					//add all members of the space to be friends with the user
 					if(mysql_num_rows($raw_results) > 0){
 						while($results = mysql_fetch_array($raw_results)){
 							if ($results['username'] != $username){
@@ -55,6 +58,7 @@
 			$sid = htmlspecialchars($sid);	
 			$username = htmlspecialchars($username);			
 			
+			//remove user from interestedin table
 			$sql = "DELETE FROM interestedin where `username`='$username' AND `sid`='$sid'";	
 			$retval = mysql_query($sql);
 			if(!$retval ){//error handling

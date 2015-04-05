@@ -10,9 +10,10 @@
 			$sid = htmlspecialchars($sid);	
 			$username = htmlspecialchars($username);			
 			
-			
+			//check if user has already expressed interest in any space
 			$raw_results = mysql_query("SELECT * FROM interestedin WHERE username='".$username."'");
 			
+			//only let them express interest if they haven't already
 			if (mysql_num_rows($raw_results) == 0){
 				$sql = "INSERT INTO interestedin (username, sid) VALUES ('$username', '$sid')";	
 				$retval = mysql_query($sql);

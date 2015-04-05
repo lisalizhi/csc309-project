@@ -22,9 +22,9 @@
 			$name = mysql_real_escape_string($name);
 			
 
-			//checks if all fields have been filled in
+			//checks if all fields have been filled in (other than photo)
 			if($location and $price and $description and $name and $sid){
-
+				//update the space table with the new information
 				$sql = "UPDATE space SET `location`='$location', `price`='$price', `description`='$description', `name`='$name' WHERE `sid`='$sid'";	
 				$retval = mysql_query($sql);
 				if(!$retval ){

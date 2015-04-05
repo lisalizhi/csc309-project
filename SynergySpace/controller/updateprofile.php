@@ -31,9 +31,9 @@
 			$description = mysql_real_escape_string($description);
 			
 
-			//checks if all fields have been filled in
+			//checks if all fields have been filled in (other than photo)
 			if($location and $occupation and $age and $email and $fname and $lname and $description){
-
+				//update the user table with the new information
 				$sql = "UPDATE users SET `first`='$fname', `last`='$lname', `description`='$description', `email`='$email',`age`='$age', `occupation`='$occupation',`location`='$location' WHERE `username`='$username'";	
 				$retval = mysql_query($sql);
 				if(!$retval ){
